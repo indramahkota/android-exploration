@@ -3,8 +3,7 @@
 
 // Applied to the current project with id
 plugins {
-    id("com.android.application")
-    id("kotlin-android")
+    id("com.indramahkota.application")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
@@ -12,33 +11,10 @@ plugins {
 }
 
 android {
-    compileSdk = 33
-
     defaultConfig {
-        applicationId = "com.indramahkota.app"
-        minSdk = 21
-        targetSdk = 33
+        applicationId = "com.indramahkota.exploration"
         versionCode = 1
-        versionName = "1.0"
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    signingConfigs {
-        create("release") {
-            keyAlias = "release-alias"
-            keyPassword = "12345678"
-            storeFile = file("../keystore/release-key.jks")
-            storePassword = "12345678"
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-
-    kotlinOptions {
-        jvmTarget = "11"
+        versionName = "1.0.0"
     }
 
     /**
@@ -53,6 +29,15 @@ android {
      * */
     composeOptions {
         kotlinCompilerExtensionVersion = "1.2.0-rc02"
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = "release-alias"
+            keyPassword = "12345678"
+            storeFile = file("../keystore/release-key.jks")
+            storePassword = "12345678"
+        }
     }
 }
 

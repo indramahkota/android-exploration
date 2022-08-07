@@ -3,6 +3,7 @@
 
 // In settings.gradle you can add the repositories you want to add to the project
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
@@ -10,17 +11,7 @@ pluginManagement {
     }
 }
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        gradlePluginPortal()
-        maven { setUrl("https://jitpack.io") }
-    }
-}
-
-rootProject.name = "mad-base-sample"
+rootProject.name = "android-exploration"
 
 include(":app:app")
 include(":app:regular_feature:homepage")

@@ -3,10 +3,8 @@
 
 // Add plugin to classpath with id
 plugins {
-    // plugin id: com.android.application
-    id("com.android.application") version "7.4.0-alpha08" apply false
-    // plugin id: com.android.library
-    id("com.android.library") version "7.4.0-alpha08" apply false
+    // indramahkota custom plugin
+    id("com.indramahkota.android-config")
     // plugin id: kotlin-android
     id("org.jetbrains.kotlin.android") version "1.6.21" apply false
     // plugin id: kotlin-kapt
@@ -19,6 +17,13 @@ plugins {
     id("androidx.navigation.safeargs.kotlin") version "2.4.2" apply false
     // plugin id: com.google.android.libraries.mapsplatform.secrets-gradle-plugin
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin") version "2.0.1" apply false
+}
+
+indramahkota {
+    android {
+        minSdk.set(23)
+        targetSdk.set(32)
+    }
 }
 
 tasks.register("clean", Delete::class) {
