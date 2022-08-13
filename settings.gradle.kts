@@ -3,15 +3,12 @@
 
 // In settings.gradle you can add the repositories you want to add to the project
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
         maven { setUrl("https://jitpack.io") }
-        maven {
-            isAllowInsecureProtocol = true
-            setUrl("http://localhost:8081/repository/maven-releases/")
-        }
     }
 }
 

@@ -4,6 +4,7 @@
 // Applied to the current project with id
 plugins {
     id("com.indramahkota.android-library")
+    id("com.indramahkota.detekt")
     id("kotlin-parcelize")
 }
 

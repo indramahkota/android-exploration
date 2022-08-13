@@ -6,6 +6,7 @@ plugins {
     // indramahkota custom plugin
     id("com.indramahkota.application") version "0.0.0" apply false
     id("com.indramahkota.android-library") version "0.0.0" apply false
+    id("com.indramahkota.detekt") version "0.0.0" apply false
     // plugin id: kotlin-android
     id("org.jetbrains.kotlin.android") version "1.6.21" apply false
     // plugin id: kotlin-kapt

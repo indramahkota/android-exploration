@@ -4,6 +4,7 @@
 // Applied to the current project with id
 plugins {
     id("com.indramahkota.application")
+    id("com.indramahkota.detekt")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
