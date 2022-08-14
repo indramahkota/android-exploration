@@ -12,15 +12,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/app/app" />
+            <option value="$PROJECT_DIR$/app/exploration" />
             <option value="$PROJECT_DIR$/app/regular_feature" />
             <option value="$PROJECT_DIR$/app/regular_feature/homepage" />
-            <option value="$PROJECT_DIR$/common" />
-            <option value="$PROJECT_DIR$/common/lib_android" />
-            <option value="$PROJECT_DIR$/common/lib_compose" />
-            <option value="$PROJECT_DIR$/common/lib_kotlin" />
-            <option value="$PROJECT_DIR$/data" />
-            <option value="$PROJECT_DIR$/data/common" />
           </set>
         </option>
       </GradleProjectSettings>

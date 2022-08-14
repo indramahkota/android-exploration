@@ -20,11 +20,5 @@ pluginManagement {
 
 rootProject.name = "android-exploration"
 
-include(":app:app")
+include(":app:exploration")
 include(":app:regular_feature:homepage")
-
-include(":common:lib_kotlin")
-include(":common:lib_android")
-include(":common:lib_compose")
-
-include(":data:common")

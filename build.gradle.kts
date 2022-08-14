@@ -8,8 +8,6 @@ plugins {
     id("com.indramahkota.build.logic.convention.android-app") version "0.0.0" apply false
     id("com.indramahkota.build.logic.convention.android-lib") version "0.0.0" apply false
 
-    // plugin id: kotlin-android
-    id("org.jetbrains.kotlin.android") version "1.6.21" apply false
     // plugin id: kotlin-kapt
     id("org.jetbrains.kotlin.kapt") version "1.6.21" apply false
     // plugin id: kotlin-parcelize

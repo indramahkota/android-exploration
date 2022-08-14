@@ -3,13 +3,20 @@
 
 // Applied to the current project with id
 plugins {
-    id("com.indramahkota.build.logic.convention.android-lib")
+    id("com.indramahkota.build.logic.convention.android-app")
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
+    defaultConfig {
+        applicationId = "com.indramahkota.exploration"
+        versionCode = 1
+        versionName = "1.0.0"
+    }
+
     /**
      * https://developer.android.com/jetpack/androidx/releases/compose-runtime#declaring_dependencies
      * */
@@ -22,6 +29,15 @@ android {
      * */
     composeOptions {
         kotlinCompilerExtensionVersion = "1.2.0-rc02"
+    }
+
+    signingConfigs {
+        create("release") {
+            keyAlias = "release-alias"
+            keyPassword = "12345678"
+            storeFile = file("../keystore/release-key.jks")
+            storePassword = "12345678"
+        }
     }
 }
 
