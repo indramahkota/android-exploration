@@ -1,10 +1,10 @@
 // We want to use new APIs
 @file:Suppress("UnstableApiUsage")
 
-// Add plugin to classpath with id
+@Suppress("StringLiteralDuplication")
 plugins {
     // indramahkota custom plugin
-    id("com.indramahkota.build.logic.convention.android-config") version "0.0.0" apply false
+    id("com.indramahkota.build.logic.convention.android-config") version "0.0.0" apply true
     id("com.indramahkota.build.logic.convention.android-app") version "0.0.0" apply false
     id("com.indramahkota.build.logic.convention.android-lib") version "0.0.0" apply false
 

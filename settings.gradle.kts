@@ -22,3 +22,4 @@ rootProject.name = "android-exploration"
 
 include(":app:exploration")
 include(":app:regular_feature:homepage")
+include(":app:regular_feature:profile")

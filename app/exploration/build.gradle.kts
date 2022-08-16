@@ -1,7 +1,6 @@
 // We want to use new APIs
 @file:Suppress("UnstableApiUsage")
 
-// Applied to the current project with id
 plugins {
     id("com.indramahkota.build.logic.convention.android-app")
     id("kotlin-kapt")
