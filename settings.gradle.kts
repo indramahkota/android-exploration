@@ -7,12 +7,13 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
-        maven { setUrl("https://jitpack.io") }
         maven {
             url = uri("https://maven.pkg.github.com/indramahkota/build-logic-convention/")
             credentials {
-                username = System.getenv("GITHUB_USERNAME")
-                password = System.getenv("GITHUB_TOKEN")
+                username = providers.gradleProperty("github.username").orNull
+                    ?: System.getenv("GITHUB_USERNAME")
+                password = providers.gradleProperty("github.token").orNull
+                    ?: System.getenv("GITHUB_TOKEN")
             }
         }
     }
