@@ -90,3 +90,8 @@ dependencies {
     // Timber
     implementation(libs.timber)
 }
+
+repositories {
+    google()
+    mavenCentral()
+}

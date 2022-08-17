@@ -35,7 +35,6 @@ private val LightColors = lightColorScheme(
     inversePrimary = md_theme_light_inversePrimary,
 )
 
-
 private val DarkColors = darkColorScheme(
     primary = md_theme_dark_primary,
     onPrimary = md_theme_dark_onPrimary,

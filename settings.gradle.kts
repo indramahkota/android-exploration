@@ -1,6 +1,8 @@
 // We want to use new APIs
 @file:Suppress("UnstableApiUsage")
 
+enableFeaturePreview("VERSION_CATALOGS")
+
 // In settings.gradle you can add the repositories you want to add to the project
 pluginManagement {
     repositories {
