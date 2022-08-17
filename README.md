@@ -1,22 +1,28 @@
-# Modern Android Development (MAD) Sample
+# Android Exploration
 
-[![GitHub](https://img.shields.io/github/license/indramahkota/mad-base-sample?color=blue)](https://github.com/indramahkota/mad-base-sample/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/indramahkota/mad-base-sample)](https://github.com/indramahkota/mad-base-sample/stargazers) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![Scan with Detekt](https://github.com/indramahkota/android-exploration/actions/workflows/detekt.yml/badge.svg)](https://github.com/indramahkota/android-exploration/actions/workflows/detekt.yml) [![GitHub](https://img.shields.io/github/license/indramahkota/android-exploration?color=blue)](https://github.com/indramahkota/android-exploration/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/indramahkota/android-exploration)](https://github.com/indramahkota/android-exploration/stargazers) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 ## 💻 Requirements
 
-You need to use [Android Studio](https://developer.android.com/studio).
-You can clone this repository or import the
-project from Android Studio.
+> You need to use [Android Studio](https://developer.android.com/studio) to run this project and github token for fetch some dependencies
 
 ```bash
 # Clone this repository
-$ git clone https://github.com/idmahkota/mad-base-sample.git
+$ git clone https://github.com/indramahkota/android-exploration.git
 
-# From VCS Android Studio
+# Clone from Android Studio VCS
 File -> New -> Project from Version Control -> GitHub -> Clone.
 ```
 
-![Modern Android Development Preview](https://raw.githubusercontent.com/indramahkota/indramahkota.github.io/master/assets/githubs/mad-sample.png)
+### Features
+
+- Code smell analysis using [Kotlin Detekt](https://github.com/detekt/detekt)
+- CI/CD using github actions [Understanding GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
+- Android project gradle with [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
+- Central declaration of dependencies using [Gradle Version Catalog](https://docs.gradle.org/current/userguide/platforms.html#sub:version-catalog)
+- Some dependencies published using [GitHub Packages](https://docs.github.com/en/packages)
+- Modern Android Development with 100% [Kotlin Language](https://kotlinlang.org/)
+- UI/UX using material 3 and Jetpack Compose [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3)
 
 ## License
 

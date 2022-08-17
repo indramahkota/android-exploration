@@ -4,9 +4,9 @@ name: Scan with Detekt
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   push:
-    branches: [ "main" ]
+    branches: ["main"]
   pull_request:
-    branches: [ "main" ]
+    branches: ["main"]
   schedule:
     # https://crontab.guru/#34_20_*_*_6 { At 20:34 on Saturday. }
     #        ┌───────────── minute (0 - 59)
@@ -30,9 +30,9 @@ env:
 
 # See: https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 jobs:
-  plain:
+  detekt-scan:
     permissions:
-      security-events: write  # for github/codeql-action/upload-sarif to upload SARIF results
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -42,7 +42,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 17
-          distribution: 'temurin'
+          distribution: "temurin"
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
