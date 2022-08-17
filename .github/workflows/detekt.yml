@@ -1,0 +1,60 @@
+# Created by Indra Mahkota
+name: Scan with Detekt
+
+on:
+  # Triggers the workflow on push or pull request events but only for default and protected branches
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+  schedule:
+    # https://crontab.guru/#34_20_*_*_6 { At 20:34 on Saturday. }
+    #        ┌───────────── minute (0 - 59)
+    #        │  ┌───────────── hour (0 - 23)
+    #        │  │ ┌───────────── day of the month (1 - 31)
+    #        │  │ │ ┌───────────── month (1 - 12 or JAN-DEC)
+    #        │  │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        │  │ │ │ │
+    #        *  * * * *
+    - cron: "34 20 * * 6"
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Add specific environment from secret
+env:
+  GITHUB_USERNAME: ${{ secrets.USERNAME }}
+  GITHUB_TOKEN: ${{ secrets.TOKEN }}
+
+# See: https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
+jobs:
+  plain:
+    permissions:
+      security-events: write  # for github/codeql-action/upload-sarif to upload SARIF results
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v2
+
+      - name: Setup Java
+        uses: actions/setup-java@v1
+        with:
+          java-version: 17
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Run detekt
+        run: chmod +x gradlew && ./gradlew :detektAll --stacktrace
+
+      # Make sure we always run this upload task,
+      # because the previous step may fail if there are findings.
+      - name: Upload SARIF to Github using the upload-sarif action
+        uses: github/codeql-action/upload-sarif@v2
+        if: success() || failure()
+        with:
+          sarif_file: build/reports/detekt.sarif
+          category: my-detekt-analysis-tool

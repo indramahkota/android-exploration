@@ -21,8 +21,8 @@ plugins {
 
 // Configure subprojects from root project
 indramahkota {
-    configsDir.set(file("/config/"))
-    reportsDir.set(file("/build/reports/"))
+    configsDir.set(file("./config"))
+    reportsDir.set(file("./build/reports"))
 
     android {
         minSdk.set(23)
