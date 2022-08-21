@@ -3,42 +3,9 @@
 
 plugins {
     id("com.indramahkota.build.logic.convention.android-lib")
-    id("kotlin-kapt")
-    id("kotlin-parcelize")
-    id("dagger.hilt.android.plugin")
-}
-
-// Using configuration from root project
-android {
-    /**
-     * https://developer.android.com/jetpack/androidx/releases/compose-runtime#declaring_dependencies
-     * */
-    buildFeatures {
-        compose = true
-    }
-
-    /**
-     * Same as @buildFeatures reference
-     * */
-    composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0-rc02"
-    }
-}
-
-kapt {
-    arguments {
-        // Make Hilt share the same definition of Components in tests instead of
-        // creating a new set of Components per test class.
-        arg("dagger.hilt.shareTestComponents", "true")
-    }
 }
 
 dependencies {
-    // Kotlin
-    implementation(libs.kotlinx.coroutines.core)
-    implementation(libs.kotlinx.coroutines.android)
-    testImplementation(libs.kotlinx.coroutines.test)
-
     // Android
     implementation(libs.core)
     implementation(libs.appcompat)
@@ -51,8 +18,6 @@ dependencies {
     implementation(libs.lifecycle.livedata)
 
     // Android Compose
-    implementation(libs.activity.compose)
-    implementation(libs.constraintlayout.compose)
     implementation(libs.navigation.compose)
     implementation(libs.hilt.navigation.compose)
     androidTestImplementation(libs.navigation.testing)
@@ -75,23 +40,4 @@ dependencies {
 
     // Compose Coil
     implementation(libs.coil.compose)
-
-    /**
-     * Hilt
-     * https://dagger.dev/hilt/gradle-setup#using-hilt-with-kotlin
-     */
-    implementation(libs.dagger.hilt.android)
-    kapt(libs.dagger.hilt.compiler)
-    androidTestImplementation(libs.dagger.hilt.testing)
-    kaptAndroidTest(libs.dagger.hilt.compiler)
-    testImplementation(libs.dagger.hilt.testing)
-    kaptTest(libs.dagger.hilt.compiler)
-
-    // Timber
-    implementation(libs.timber)
-}
-
-repositories {
-    google()
-    mavenCentral()
 }
