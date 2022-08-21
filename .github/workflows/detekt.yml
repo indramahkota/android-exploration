@@ -41,8 +41,7 @@ jobs:
       - name: Setup Java
         uses: actions/setup-java@v1
         with:
-          java-version: 17
-          distribution: "temurin"
+          java-version: 18
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
