@@ -18,24 +18,41 @@ indramahkota {
     reportsDir.set(file("build/reports/"))
 
     // Default JavaVersion.VERSION_1_8
-    jvmTarget.set(JavaVersion.VERSION_1_8)
+    jvmTarget.set(JavaVersion.VERSION_11)
 
+    /**
+     * CONFIGURATION KOTLIN
+     * -----------------------
+     * kotlin stdlib-jdk8 1.7.10
+     * freeCompilerArgs opt-in
+     * useJunitPlatform for test
+     * kotlinx-coroutines-core
+     * kotlinx-coroutines-android
+     * -----------------------
+     *
+     *
+     * IMPLEMENTATION ANDROID
+     * -----------------------
+     * kotlin-kapt
+     * kotlin-android
+     * kotlin-parcelize
+     * com.android.library
+     * com.android.application
+     * -----------------------
+     *
+     *
+     * IMPLEMENTATION COMPOSE
+     * -----------------------
+     * default not implemented
+     * activity-compose
+     * constraintlayout-compose
+     * -----------------------
+     * */
     android {
-        /**
-         * CONFIGURATION
-         * -----------------------
-         * kotlin-android
-         * kotlin-kapt
-         * kotlin-parcelize
-         * app: com.android.application
-         * lib: com.android.library
-         * jetpack compose
-         * -----------------------
-         *
-         * IMPLEMENTATION
-         * -----------------------
-         * */
         minSdk.set(23)
         targetSdk.set(32)
+
+        usingCompose.set(true)
+        composeCompilerVersion.set("1.3.0-rc02")
     }
 }

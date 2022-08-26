@@ -7,12 +7,13 @@ enableFeaturePreview("VERSION_CATALOGS")
 pluginManagement {
     repositories {
         maven {
-            url = uri("https://maven.pkg.github.com/indramahkota/build-logic/")
+            url = uri("https://maven.pkg.github.com/indramahkota/build-logic-public/")
             credentials {
                 username = providers.gradleProperty("github.username").orNull
-                    ?: System.getenv("GITHUB_USERNAME")
+                    ?: System.getenv("GITHUB_USERNAME") ?: "indramahkota"
+                // Artifact available on public repository
                 password = providers.gradleProperty("github.token").orNull
-                    ?: System.getenv("GITHUB_TOKEN")
+                    ?: System.getenv("GITHUB_TOKEN") ?: ""
             }
         }
         google()
