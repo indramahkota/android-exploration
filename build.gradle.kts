@@ -1,6 +1,3 @@
-// We want to use new APIs
-@file:Suppress("UnstableApiUsage")
-
 @Suppress("StringLiteralDuplication")
 plugins {
     id("com.indramahkota.build.logic.convention.android-lib") version "0.0.0" apply false
@@ -43,7 +40,7 @@ indramahkota {
      *
      * IMPLEMENTATION COMPOSE
      * -----------------------
-     * default not implemented
+     * not implemented by default
      * activity-compose
      * constraintlayout-compose
      * -----------------------
