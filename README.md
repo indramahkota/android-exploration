@@ -1,6 +1,6 @@
 # Android Exploration
 
-[![Scan with Detekt](https://github.com/indramahkota/android-exploration/actions/workflows/detekt.yml/badge.svg)](https://github.com/indramahkota/android-exploration/actions/workflows/detekt.yml) [![GitHub](https://img.shields.io/github/license/indramahkota/android-exploration?color=blue)](https://github.com/indramahkota/android-exploration/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/indramahkota/android-exploration)](https://github.com/indramahkota/android-exploration/stargazers) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
+[![Scan with Detekt All](https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml/badge.svg)](https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml) [![GitHub](https://img.shields.io/github/license/indramahkota/android-exploration?color=blue)](https://github.com/indramahkota/android-exploration/blob/master/LICENSE) [![GitHub stars](https://img.shields.io/github/stars/indramahkota/android-exploration)](https://github.com/indramahkota/android-exploration/stargazers) [![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors)
 
 ## 💻 Requirements
 
