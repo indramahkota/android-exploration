@@ -1,24 +1,12 @@
 # Created by Indra Mahkota
-name: Scan with Detekt
+name: Scan with Detekt Diff
 
 on:
   # Triggers the workflow on push or pull request events but only for default and protected branches
   push:
-    branches: ["main"]
+    branches: ["develop"]
   pull_request:
-    branches: ["main"]
-  schedule:
-    # https://crontab.guru/#34_20_*_*_6 { At 20:34 on Saturday. }
-    #        ┌───────────── minute (0 - 59)
-    #        │  ┌───────────── hour (0 - 23)
-    #        │  │ ┌───────────── day of the month (1 - 31)
-    #        │  │ │ ┌───────────── month (1 - 12 or JAN-DEC)
-    #        │  │ │ │ ┌───────────── day of the week (0 - 6 or SUN-SAT)
-    #        │  │ │ │ │
-    #        │  │ │ │ │
-    #        │  │ │ │ │
-    #        *  * * * *
-    - cron: "34 20 * * 6"
+    branches: ["develop"]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -30,13 +18,15 @@ env:
 
 # See: https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 jobs:
-  detekt-scan:
+  detekt-scan-diff:
     permissions:
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
+        with:
+          ref: develop
 
       - name: Setup Java
         uses: actions/setup-java@v1
@@ -47,7 +37,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Run detekt
-        run: chmod +x gradlew && ./gradlew :detektAll --stacktrace
+        run: chmod +x gradlew && ./gradlew :detektDiff --stacktrace
 
       # Make sure we always run this upload task,
       # because the previous step may fail if there are findings.
@@ -55,5 +45,5 @@ jobs:
         uses: github/codeql-action/upload-sarif@v2
         if: success() || failure()
         with:
-          sarif_file: build/reports/detekt.sarif
+          sarif_file: build/reports/detekt-reports/detekt.sarif
           category: my-detekt-analysis-tool
