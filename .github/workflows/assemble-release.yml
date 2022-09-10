@@ -34,7 +34,7 @@ jobs:
 
   generate-release-apk:
     needs: [ build ]
-    name: Generate a release bundle
+    name: Generate a Release apk
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
@@ -49,9 +49,8 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
-      # https://stackoverflow.com/questions/60510215/bundlerelease-fails-with-task-appcollectreleasedependencies-failed
-      - name: Generate a Release apk
-        run: chmod +x gradlew && ./gradlew assembleRelease --build-cache
+      - name: Assemble Release
+        run: chmod +x gradlew && ./gradlew assembleRelease
 
       - name: Sign Release apk
         uses: r0adkll/sign-android-release@v1

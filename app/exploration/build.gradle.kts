@@ -14,6 +14,11 @@ android {
         versionCode = androidVersionCode
         versionName = androidVersionName
     }
+
+    dependenciesInfo {
+        includeInBundle = false
+        includeInApk = false
+    }
 }
 
 dependencies {
