@@ -69,4 +69,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
+          name: exploration-release-signed-apk
           path: app/exploration/build/outputs/apk/release/exploration-release-signed.apk
