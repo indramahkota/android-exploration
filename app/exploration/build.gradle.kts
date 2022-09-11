@@ -3,12 +3,14 @@ plugins {
     id("com.indramahkota.build.logic.convention.compose-app")
 }
 
-val androidApplicationId: String by rootProject.extra
-val androidVersionCode: Int by rootProject.extra
-val androidVersionName: String by rootProject.extra
+val androidApplicationId by extra { "com.indramahkota.app.exploration" }
+val androidVersionCode by extra { 1 }
+val androidVersionName by extra { "0.0.0" }
 
-// Using configuration from root project
+// Using initial configuration from root project
 android {
+    namespace = androidApplicationId
+
     defaultConfig {
         applicationId = androidApplicationId
         versionCode = androidVersionCode
