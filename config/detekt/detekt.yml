@@ -314,8 +314,8 @@ formatting:
     autoCorrect: true
     insertFinalNewLine: true
   ImportOrdering:
-    active: true
-    autoCorrect: true
+    active: false
+    autoCorrect: false
     layout: '*,java.**,javax.**,kotlin.**,^'
   Indentation:
     active: true

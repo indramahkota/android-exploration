@@ -50,7 +50,7 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Assemble Release
-        run: chmod +x gradlew && ./gradlew assembleRelease
+        run: chmod +x gradlew && ./gradlew assembleRelease --configuration-cache
 
       - name: Sign Release apk
         uses: r0adkll/sign-android-release@v1
