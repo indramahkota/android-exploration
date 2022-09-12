@@ -3,7 +3,7 @@
 <div align="center">
 <a href="https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml"><img src="https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml/badge.svg" alt="Scan with Detekt All"/></a> <a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml/badge.svg" alt="Assemble Release"/></a>
 
-<a href="https://github.com/indramahkota/android-exploration/blob/master/LICENSE"><img src="https://img.shields.io/github/license/indramahkota/android-exploration?color=blue" alt="LICENSE"/></a> <a href="https://github.com/indramahkota/android-exploration/stargazers"><img src="https://img.shields.io/github/stars/indramahkota/android-exploration" alt="GitHub Stars"/></a> <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square" alt="All Contributors"/></a>
+<a href="https://github.com/indramahkota/android-exploration/blob/master/LICENSE"><img src="https://img.shields.io/github/license/indramahkota/android-exploration?color=blue" alt="LICENSE"/></a> <a href="https://github.com/indramahkota/android-exploration/stargazers"><img src="https://img.shields.io/github/stars/indramahkota/android-exploration" alt="GitHub Stars"/></a> <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat" alt="All Contributors"/></a>
 </div>
 
 <br/>
@@ -60,10 +60,6 @@ plugins {
     id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.5" apply false
     id("com.indramahkota.build.logic.convention.compose-app") version "0.0.5" apply false
 }
-
-val androidApplicationId by extra { "com.indramahkota.app.exploration" }
-val androidVersionCode by extra { 1 }
-val androidVersionName by extra { "0.0.0" }
 
 // Initial configuration for subprojects
 indramahkota {
