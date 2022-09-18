@@ -11,6 +11,7 @@ on:
 env:
   GITHUB_USERNAME: ${{ secrets.USERNAME }}
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  SSHK: ${{ secrets.SUB_SSHK_A }}
 
 jobs:
   build:
@@ -19,9 +20,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-        with:
-          submodules: 'true'
-          token: $GITHUB_TOKEN
+
+      - name: Get Submodules
+        run: |
+          mkdir -p $HOME/.ssh
+          echo "$SSHK" > $HOME/.ssh/ssh.key
+          chmod 600 $HOME/.ssh/ssh.key
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
+          git submodule update --init --recursive
 
       - name: Setup Java
         uses: actions/setup-java@v3
@@ -42,9 +48,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-        with:
-          submodules: 'true'
-          token: $GITHUB_TOKEN
+
+      - name: Get Submodules
+        run: |
+          mkdir -p $HOME/.ssh
+          echo "$SSHK" > $HOME/.ssh/ssh.key
+          chmod 600 $HOME/.ssh/ssh.key
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
+          git submodule update --init --recursive
 
       - name: Setup Java
         uses: actions/setup-java@v3

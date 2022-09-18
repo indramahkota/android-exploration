@@ -13,6 +13,7 @@ on:
 env:
   GITHUB_USERNAME: ${{ secrets.USERNAME }}
   GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  SSHK: ${{ secrets.SUB_SSHK_A }}
 
 # See: https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 jobs:
@@ -23,9 +24,14 @@ jobs:
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v3
-        with:
-          submodules: 'true'
-          token: $GITHUB_TOKEN
+
+      - name: Get Submodules
+        run: |
+          mkdir -p $HOME/.ssh
+          echo "$SSHK" > $HOME/.ssh/ssh.key
+          chmod 600 $HOME/.ssh/ssh.key
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
+          git submodule update --init --recursive
 
       - name: Setup Java
         uses: actions/setup-java@v3
