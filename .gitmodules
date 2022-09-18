@@ -2,3 +2,11 @@
 	path = build-logic
 	url = git@github.com:indramahkota/build-logic.git
 	branch = main
+[submodule "core"]
+	path = core
+	url = git@github.com:indramahkota/android-exploration-core.git
+	branch = main
+[submodule "data"]
+	path = data
+	url = git@github.com:indramahkota/android-exploration-data.git
+	branch = main

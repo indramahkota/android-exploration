@@ -11,6 +11,10 @@ plugins {
     id("com.indramahkota.build.logic.convention.compose-app") version "0.0.6" apply false
 }
 
+val androidApplicationId by extra { "com.indramahkota.app.exploration" }
+val androidVersionCode by extra { 1 }
+val androidVersionName by extra { "0.0.0" }
+
 // Initial configuration for subprojects
 indramahkota {
     // Default $root/config/

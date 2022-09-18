@@ -38,6 +38,14 @@ dependencyResolutionManagement {
 
 rootProject.name = "android-exploration"
 
+// current sources
 include(":app:exploration")
 include(":app:regular_feature:homepage")
 include(":app:regular_feature:profile")
+
+// include core from another sources
+include(":core:common")
+include(":core:design_system")
+
+// include data from another sources
+include(":data:common")

@@ -16,6 +16,11 @@
             <option value="$PROJECT_DIR$/app/regular_feature" />
             <option value="$PROJECT_DIR$/app/regular_feature/homepage" />
             <option value="$PROJECT_DIR$/app/regular_feature/profile" />
+            <option value="$PROJECT_DIR$/core" />
+            <option value="$PROJECT_DIR$/core/common" />
+            <option value="$PROJECT_DIR$/core/design_system" />
+            <option value="$PROJECT_DIR$/data" />
+            <option value="$PROJECT_DIR$/data/common" />
           </set>
         </option>
       </GradleProjectSettings>
