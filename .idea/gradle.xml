@@ -24,6 +24,9 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/app/exploration" />
+            <option value="$PROJECT_DIR$/app/regular_feature" />
+            <option value="$PROJECT_DIR$/app/regular_feature/homepage" />
+            <option value="$PROJECT_DIR$/app/regular_feature/profile" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/core" />
             <option value="$PROJECT_DIR$/core/common" />
