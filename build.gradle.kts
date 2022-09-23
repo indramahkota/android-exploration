@@ -1,14 +1,13 @@
-@Suppress("StringLiteralDuplication")
 plugins {
-    id("com.indramahkota.build.logic.convention.detekt") version "0.0.6"
+    id("com.indramahkota.build.logic.convention.detekt")
 
-    id("com.indramahkota.build.logic.convention.android-config") version "0.0.6"
-    id("com.indramahkota.build.logic.convention.android-lib") version "0.0.6" apply false
-    id("com.indramahkota.build.logic.convention.android-app") version "0.0.6" apply false
+    id("com.indramahkota.build.logic.convention.android-config")
+    id("com.indramahkota.build.logic.convention.android-lib") apply false
+    id("com.indramahkota.build.logic.convention.android-app") apply false
 
-    id("com.indramahkota.build.logic.convention.compose-config") version "0.0.6"
-    id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.6" apply false
-    id("com.indramahkota.build.logic.convention.compose-app") version "0.0.6" apply false
+    id("com.indramahkota.build.logic.convention.compose-config")
+    id("com.indramahkota.build.logic.convention.compose-lib") apply false
+    id("com.indramahkota.build.logic.convention.compose-app") apply false
 }
 
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }

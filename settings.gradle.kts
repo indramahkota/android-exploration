@@ -3,16 +3,7 @@ enableFeaturePreview("VERSION_CATALOGS")
 // In settings.gradle you can add the repositories you want to add to the project
 pluginManagement {
     repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/indramahkota/build-logic-public/")
-            credentials {
-                username = providers.gradleProperty("github.username").orNull
-                    ?: System.getenv("GITHUB_USERNAME") ?: "indramahkota"
-                // Artifact available on public repository
-                password = providers.gradleProperty("github.token").orNull
-                    ?: System.getenv("GITHUB_TOKEN") ?: ""
-            }
-        }
+        includeBuild("build-logic")
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -36,16 +27,26 @@ dependencyResolutionManagement {
     }
 }
 
+// Iterate all files inside directory
+fun File.children(): List<File> = listFiles()?.toList() ?: emptyList()
+
+// Convert file to string with gradle project path separator
+fun File.module(): String = toString()
+    .replace(rootDir.toString(), "")
+    .replace(File.separator, ":")
+
+// Gradle multi-project paths
+listOf("app", "core", "data").forEach { dir ->
+    File("$rootDir/$dir")
+        .walk(FileWalkDirection.BOTTOM_UP)
+        .filter { file -> file.isDirectory }
+        .filter { file -> file.children().any { it.name == "build.gradle.kts" } }
+        .forEach { file ->
+            file.module().let {
+                include(it)
+                project(it).projectDir = file
+            }
+        }
+}
+
 rootProject.name = "android-exploration"
-
-// current sources
-include(":app:exploration")
-include(":app:regular_feature:homepage")
-include(":app:regular_feature:profile")
-
-// include core from another sources
-include(":core:common")
-include(":core:design_system")
-
-// include data from another sources
-include(":data:common")
