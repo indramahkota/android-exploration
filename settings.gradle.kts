@@ -39,8 +39,12 @@ fun File.module(): String = toString()
 listOf("app", "core", "data").forEach { dir ->
     File("$rootDir/$dir")
         .walk(FileWalkDirection.BOTTOM_UP)
-        .filter { file -> file.isDirectory }
-        .filter { file -> file.children().any { it.name == "build.gradle.kts" } }
+        .filter { it.isDirectory }
+        .filter { file ->
+            file.children().any {
+                it.name == "build.gradle.kts"
+            }
+        }
         .forEach { file ->
             file.module().let {
                 include(it)

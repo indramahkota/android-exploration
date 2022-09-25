@@ -19,9 +19,17 @@ android {
 }
 
 dependencies {
-    implementation(libs.core)
-    implementation(libs.appcompat)
+    implementation(project(":core:ui"))
+    implementation(project(":app:regular_feature:homepage"))
+    implementation(project(":app:regular_feature:profile"))
 
-    implementation(libs.material)
-    implementation(libs.compose.material3)
+    implementation(libs.activity.compose)
+    implementation(libs.appcompat)
+    implementation(libs.core.ktx)
+    implementation(libs.core.splashscreen)
+    implementation(libs.window.manager)
+    implementation(libs.profileinstaller)
+
+    implementation(libs.coil)
+    implementation(libs.coil.svg)
 }
