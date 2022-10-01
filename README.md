@@ -78,12 +78,6 @@ val androidVersionName by extra { "0.0.0" }
 
 // Initial configuration for subprojects
 indramahkota {
-    // Default $root/config/
-    configsDir.set(file("config/"))
-
-    // Default $root/build/reports/
-    reportsDir.set(file("build/reports/"))
-
     // Default JavaVersion.VERSION_1_8
     jvmTarget.set(JavaVersion.VERSION_11)
 
@@ -95,16 +89,19 @@ indramahkota {
         }
     }
 
+    // Apply hilt for DI
     android {
         minSdk.set(23)
-        targetSdk.set(32)
+        targetSdk.set(33)
+        usingHilt.set(true)
     }
 
     // Report directory:
     // - $reportsDir/compose-reports/
     // - $reportsDir/compose-metrics/
     compose {
-        compilerVersion.set("1.3.0")
+        // https://developer.android.com/jetpack/androidx/releases/compose-compiler
+        compilerVersion.set("1.3.1")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }

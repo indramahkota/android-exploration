@@ -24,7 +24,6 @@ dependencies {
     implementation(project(":app:regular_feature:profile"))
 
     implementation(libs.activity.compose)
-    implementation(libs.appcompat)
     implementation(libs.core.ktx)
     implementation(libs.core.splashscreen)
     implementation(libs.window.manager)
