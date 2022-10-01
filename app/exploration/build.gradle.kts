@@ -20,6 +20,7 @@ android {
 
 dependencies {
     implementation(project(":core:ui"))
+    implementation(project(":core:network"))
     implementation(project(":app:regular_feature:homepage"))
     implementation(project(":app:regular_feature:profile"))
 
