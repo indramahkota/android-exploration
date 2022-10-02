@@ -20,6 +20,8 @@ $ git clone https://github.com/indramahkota/android-exploration.git
 File -> New -> Project from Version Control -> GitHub -> Clone.
 ```
 
+</br>
+
 ## 📝 Features
 
 - CI/CD using [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
@@ -28,6 +30,15 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 - Some dependencies published on [GitHub Packages](https://docs.github.com/en/packages)
 - Modern Android Development with 100% [Kotlin Language](https://kotlinlang.org/)
 - UI/UX using material 3 and Jetpack Compose [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3)
+
+</br>
+
+## ⬇️ Download the APK
+
+<div align="center">
+<a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://user-images.githubusercontent.com/34052126/193442434-1a36f7d2-a378-4230-9315-c044b030320f.png" alt="Download the APK"/></a>
+</div>
+</br>
 
 ## 💡Simplify Gradle build scripts
 
