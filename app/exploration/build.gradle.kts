@@ -1,5 +1,4 @@
 plugins {
-    id("com.indramahkota.build.logic.convention.android-app")
     id("com.indramahkota.build.logic.convention.compose-app")
 }
 

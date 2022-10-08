@@ -9,6 +9,7 @@ val androidVersionCode by extra { 1 }
 val androidVersionName by extra { "0.0.0" }
 
 // Initial configuration for subprojects
+// This project using kotlin 1.7.20 by default
 indramahkota {
     // Default JavaVersion.VERSION_1_8
     jvmTarget.set(JavaVersion.VERSION_11)
@@ -32,8 +33,11 @@ indramahkota {
     // - $reportsDir/compose-reports/
     // - $reportsDir/compose-metrics/
     compose {
-        // https://developer.android.com/jetpack/androidx/releases/compose-compiler
-        compilerVersion.set("1.3.1")
+        // https://developer.android.com/jetpack/androidx/releases/compose
+        // compiler and runtime is mandatory property
+        // default is v1.3.2 and v1.3.0-rc01
+        compilerVersion.set("1.3.2")
+        runtimeVersion.set("1.3.0-rc01")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }
