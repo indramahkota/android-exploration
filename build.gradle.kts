@@ -2,6 +2,13 @@ plugins {
     id("com.indramahkota.build.logic.convention.detekt")
     id("com.indramahkota.build.logic.convention.android-config")
     id("com.indramahkota.build.logic.convention.compose-config")
+
+    // Align version of all subproject modules
+    /*id("com.indramahkota.build.logic.convention.android-lib") version "0.0.5" apply false
+    id("com.indramahkota.build.logic.convention.android-app") version "0.0.5" apply false
+    id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.5" apply false
+    id("com.indramahkota.build.logic.convention.compose-app") version "0.0.5" apply false
+    id("com.indramahkota.build.logic.convention.hilt") version "0.0.5" apply false*/
 }
 
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }
@@ -22,11 +29,9 @@ indramahkota {
         }
     }
 
-    // Apply hilt for DI
     android {
         minSdk.set(23)
         targetSdk.set(33)
-        usingHilt.set(true)
     }
 
     // Report directory:

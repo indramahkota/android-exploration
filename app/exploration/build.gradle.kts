@@ -1,5 +1,8 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
     id("com.indramahkota.build.logic.convention.compose-app")
+    id("com.indramahkota.build.logic.convention.hilt")
 }
 
 val androidApplicationId: String by rootProject.extra
@@ -9,6 +12,7 @@ val androidVersionName: String by rootProject.extra
 // Using initial configuration from root project
 android {
     namespace = androidApplicationId
+    testNamespace = "$androidApplicationId.test"
 
     defaultConfig {
         applicationId = androidApplicationId

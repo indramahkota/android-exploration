@@ -34,10 +34,13 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 </br>
 
 ## ⬇️ Download the APK
+- Open the [Assemble Release Action](https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml)
+- Click the latest success running task
 
 <div align="center">
 <a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://user-images.githubusercontent.com/34052126/193442434-1a36f7d2-a378-4230-9315-c044b030320f.png" alt="Download the APK"/></a>
 </div>
+
 </br>
 
 ## 💡Simplify Gradle build scripts
@@ -70,6 +73,8 @@ plugins {
     id("com.indramahkota.build.logic.convention.compose-config") version "0.0.5"
     id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.5" apply false
     id("com.indramahkota.build.logic.convention.compose-app") version "0.0.5" apply false
+
+    id("com.indramahkota.build.logic.convention.hilt") version "0.0.5" apply false
 }
 
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }
@@ -90,11 +95,9 @@ indramahkota {
         }
     }
 
-    // Apply hilt for DI
     android {
         minSdk.set(23)
         targetSdk.set(33)
-        usingHilt.set(true)
     }
 
     // Report directory:
@@ -117,6 +120,7 @@ indramahkota {
 plugins {
     // Automatically apply android plugin
     id("com.indramahkota.build.logic.convention.compose-app")
+    id("com.indramahkota.build.logic.convention.hilt")
 }
 
 //or
@@ -124,6 +128,7 @@ plugins {
 plugins {
     // Automatically apply android plugin
     id("com.indramahkota.build.logic.convention.compose-lib")
+    id("com.indramahkota.build.logic.convention.hilt")
 }
 ```
 

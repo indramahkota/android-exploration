@@ -1,9 +1,27 @@
+@file:Suppress("UnstableApiUsage")
+
 enableFeaturePreview("VERSION_CATALOGS")
 
 // In settings.gradle you can add the repositories you want to add to the project
 pluginManagement {
     repositories {
         includeBuild("build-logic")
+
+        // Using local nexus 3
+        /*maven {
+            isAllowInsecureProtocol = true
+            setUrl("http://localhost:8081/repository/maven-releases/")
+        }*/
+
+        // Using github packages
+        /*maven {
+            url = uri("https://maven.pkg.github.com/indramahkota/build-logic-public/")
+            credentials {
+                username = "indramahkota"
+                password = ""
+            }
+        }*/
+
         google()
         mavenCentral()
         gradlePluginPortal()
