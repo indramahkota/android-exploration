@@ -1,7 +1,12 @@
+import com.indramahkota.build.logic.convention.publishing.dsl.developer
+import com.indramahkota.build.logic.convention.publishing.dsl.mit
+import com.indramahkota.build.logic.convention.publishing.dsl.setGitHubProject
+
 plugins {
     id("com.indramahkota.build.logic.convention.detekt")
     id("com.indramahkota.build.logic.convention.android-config")
     id("com.indramahkota.build.logic.convention.compose-config")
+    id("com.indramahkota.build.logic.convention.publish-config")
 
     // Align version of all subproject modules
     /*id("com.indramahkota.build.logic.convention.android-lib") version "0.0.5" apply false
@@ -45,5 +50,24 @@ indramahkota {
         runtimeVersion.set("1.3.0-rc01")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
+    }
+
+    // Set maven pom for all sub projects
+    publishing {
+        pom {
+            setGitHubProject("indramahkota/android-exploration")
+
+            licenses {
+                mit()
+            }
+
+            developers {
+                developer(
+                    id = "indramahkota",
+                    name = "Indra Mahkota",
+                    email = "indramahkota1@gmail.com"
+                )
+            }
+        }
     }
 }
