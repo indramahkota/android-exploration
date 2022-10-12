@@ -64,17 +64,20 @@ pluginManagement {
 // Root project build.gradle.kts
 @Suppress("StringLiteralDuplication")
 plugins {
-    id("com.indramahkota.build.logic.convention.detekt") version "0.0.5"
+    id("com.indramahkota.build.logic.convention.detekt") version "0.0.8"
 
-    id("com.indramahkota.build.logic.convention.android-config") version "0.0.5"
-    id("com.indramahkota.build.logic.convention.android-lib") version "0.0.5" apply false
-    id("com.indramahkota.build.logic.convention.android-app") version "0.0.5" apply false
+    id("com.indramahkota.build.logic.convention.android-config") version "0.0.8"
+    id("com.indramahkota.build.logic.convention.android-lib") version "0.0.8" apply false
+    id("com.indramahkota.build.logic.convention.android-app") version "0.0.8" apply false
 
-    id("com.indramahkota.build.logic.convention.compose-config") version "0.0.5"
-    id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.5" apply false
-    id("com.indramahkota.build.logic.convention.compose-app") version "0.0.5" apply false
+    id("com.indramahkota.build.logic.convention.compose-config") version "0.0.8"
+    id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.8" apply false
+    id("com.indramahkota.build.logic.convention.compose-app") version "0.0.8" apply false
 
-    id("com.indramahkota.build.logic.convention.hilt") version "0.0.5" apply false
+    id("com.indramahkota.build.logic.convention.hilt") version "0.0.8" apply false
+
+    id("com.indramahkota.build.logic.convention.publish-config") version "0.0.8"
+    id("com.indramahkota.build.logic.convention.publishing") version "0.0.8" apply false
 }
 
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }
@@ -112,6 +115,25 @@ indramahkota {
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }
+
+    // Set maven pom for all sub projects
+    publishing {
+        pom {
+            setGitHubProject("indramahkota/android-exploration")
+
+            licenses {
+                mit()
+            }
+
+            developers {
+                developer(
+                    id = "indramahkota",
+                    name = "Indra Mahkota",
+                    email = "indramahkota@example.com"
+                )
+            }
+        }
+    }
 }
 ```
 
@@ -129,6 +151,7 @@ plugins {
     // Automatically apply android plugin
     id("com.indramahkota.build.logic.convention.compose-lib")
     id("com.indramahkota.build.logic.convention.hilt")
+    id("com.indramahkota.build.logic.convention.publishing")
 }
 ```
 
