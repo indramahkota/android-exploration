@@ -49,35 +49,35 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 // Root project settings.gradle.kts
 pluginManagement {
     repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/indramahkota/build-logic-public/")
-            credentials {
-                username = "indramahkota"
-                password = ""
-            }
+        maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
+    }
+}
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
+    }
+
+    versionCatalogs {
+        create("libs") {
+            from("com.indramahkota.build.libs.versions:versions-stack:0.0.0")
         }
     }
+}
+
+plugins {
+    id("com.indramahkota.build.logic.convention.settings") version "0.0.10"
 }
 ```
 
 ```kt
 // Root project build.gradle.kts
-@Suppress("StringLiteralDuplication")
 plugins {
-    id("com.indramahkota.build.logic.convention.detekt") version "0.0.8"
-
-    id("com.indramahkota.build.logic.convention.android-config") version "0.0.8"
-    id("com.indramahkota.build.logic.convention.android-lib") version "0.0.8" apply false
-    id("com.indramahkota.build.logic.convention.android-app") version "0.0.8" apply false
-
-    id("com.indramahkota.build.logic.convention.compose-config") version "0.0.8"
-    id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.8" apply false
-    id("com.indramahkota.build.logic.convention.compose-app") version "0.0.8" apply false
-
-    id("com.indramahkota.build.logic.convention.hilt") version "0.0.8" apply false
-
-    id("com.indramahkota.build.logic.convention.publish-config") version "0.0.8"
-    id("com.indramahkota.build.logic.convention.publishing") version "0.0.8" apply false
+    id("com.indramahkota.build.logic.convention.detekt")
+    id("com.indramahkota.build.logic.convention.android-config")
+    id("com.indramahkota.build.logic.convention.compose-config")
+    id("com.indramahkota.build.logic.convention.publish-config")
 }
 
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }
@@ -129,7 +129,7 @@ indramahkota {
                 developer(
                     id = "indramahkota",
                     name = "Indra Mahkota",
-                    email = "indramahkota@example.com"
+                    email = "indramahkota@mail.com"
                 )
             }
         }

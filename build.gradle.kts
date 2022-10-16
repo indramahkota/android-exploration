@@ -1,5 +1,3 @@
-@file:Suppress("StringLiteralDuplication")
-
 import com.indramahkota.build.logic.convention.publishing.dsl.developer
 import com.indramahkota.build.logic.convention.publishing.dsl.mit
 import com.indramahkota.build.logic.convention.publishing.dsl.setGitHubProject
