@@ -47,6 +47,8 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 
 ```kt
 // Root project settings.gradle.kts
+enableFeaturePreview("VERSION_CATALOGS")
+
 pluginManagement {
     repositories {
         maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
