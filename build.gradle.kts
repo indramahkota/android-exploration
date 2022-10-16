@@ -1,19 +1,23 @@
+@file:Suppress("StringLiteralDuplication")
+
 import com.indramahkota.build.logic.convention.publishing.dsl.developer
 import com.indramahkota.build.logic.convention.publishing.dsl.mit
 import com.indramahkota.build.logic.convention.publishing.dsl.setGitHubProject
 
 plugins {
-    id("com.indramahkota.build.logic.convention.detekt")
-    id("com.indramahkota.build.logic.convention.android-config")
-    id("com.indramahkota.build.logic.convention.compose-config")
-    id("com.indramahkota.build.logic.convention.publish-config")
+    // Applied plugins
+    id("com.indramahkota.build.logic.convention.detekt") version "0.0.9"
+    id("com.indramahkota.build.logic.convention.android-config") version "0.0.9"
+    id("com.indramahkota.build.logic.convention.compose-config") version "0.0.9"
+    id("com.indramahkota.build.logic.convention.publish-config") version "0.0.9"
 
     // Align version of all subproject modules
-    /*id("com.indramahkota.build.logic.convention.android-lib") version "0.0.5" apply false
-    id("com.indramahkota.build.logic.convention.android-app") version "0.0.5" apply false
-    id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.5" apply false
-    id("com.indramahkota.build.logic.convention.compose-app") version "0.0.5" apply false
-    id("com.indramahkota.build.logic.convention.hilt") version "0.0.5" apply false*/
+    id("com.indramahkota.build.logic.convention.android-lib") version "0.0.9" apply false
+    id("com.indramahkota.build.logic.convention.android-app") version "0.0.9" apply false
+    id("com.indramahkota.build.logic.convention.compose-lib") version "0.0.9" apply false
+    id("com.indramahkota.build.logic.convention.compose-app") version "0.0.9" apply false
+    id("com.indramahkota.build.logic.convention.publishing") version "0.0.9" apply false
+    id("com.indramahkota.build.logic.convention.hilt") version "0.0.9" apply false
 }
 
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }
