@@ -7,8 +7,7 @@ pluginManagement {
     repositories {
         includeBuild("build-logic")
 
-        maven {
-            url = uri("https://maven.pkg.github.com/indramahkota/build-logic-public/")
+        maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/") {
             credentials {
                 username = providers.gradleProperty("github.username").orNull
                     ?: System.getenv("GITHUB_USERNAME")
@@ -26,8 +25,7 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven {
-            url = uri("https://maven.pkg.github.com/indramahkota/build-logic-public/")
+        maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/") {
             credentials {
                 username = providers.gradleProperty("github.username").orNull
                     ?: System.getenv("GITHUB_USERNAME")
@@ -56,30 +54,10 @@ dependencyResolutionManagement {
     }
 }
 
-// Iterate all files inside directory
-fun File.children(): List<File> = listFiles()?.toList() ?: emptyList()
-
-// Convert file to string with gradle project path separator
-fun File.module(): String = toString()
-    .replace(rootDir.toString(), "")
-    .replace(File.separator, ":")
-
-// Gradle multi-project paths
-listOf("app", "core", "data").forEach { dir ->
-    File("$rootDir/$dir")
-        .walk(FileWalkDirection.BOTTOM_UP)
-        .filter { it.isDirectory }
-        .filter { file ->
-            file.children().any {
-                it.name == "build.gradle.kts"
-            }
-        }
-        .forEach { file ->
-            file.module().let {
-                include(it)
-                project(it).projectDir = file
-            }
-        }
+// Is this block resolve root project build.gradle.kts version for
+// com.indramahkota.build.logic.convention plugins to specific version?
+plugins {
+    id("com.indramahkota.build.logic.convention.settings") version "0.0.10"
 }
 
 rootProject.name = "android-exploration"
