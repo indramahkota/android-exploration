@@ -9,10 +9,6 @@ plugins {
     id("com.indramahkota.build.logic.convention.publish-config")
 }
 
-val androidApplicationId by extra { "com.indramahkota.app.exploration" }
-val androidVersionCode by extra { 1 }
-val androidVersionName by extra { "0.0.0" }
-
 // Initial configuration for subprojects
 // This project using kotlin 1.7.20 by default
 indramahkota {
