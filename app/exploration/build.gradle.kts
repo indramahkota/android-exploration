@@ -1,4 +1,4 @@
-@file:Suppress("UnstableApiUsage")
+@file:Suppress("UnstableApiUsage", "StringLiteralDuplication")
 
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import com.indramahkota.build.logic.convention.android.dsl.qa
