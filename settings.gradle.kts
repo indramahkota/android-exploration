@@ -5,8 +5,6 @@ enableFeaturePreview("VERSION_CATALOGS")
 // In settings.gradle you can add the repositories you want to add to the project
 pluginManagement {
     repositories {
-        includeBuild("build-logic")
-
         maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/") {
             name = "GitHubPackages"
             credentials {
@@ -57,8 +55,7 @@ dependencyResolutionManagement {
     }
 }
 
-// Is this block resolve root project build.gradle.kts version for
-// com.indramahkota.build.logic.convention plugins to specific version?
+// Set com.indramahkota.build.logic.convention.* plugins to specific version
 plugins {
     id("com.indramahkota.build.logic.convention.settings") version "0.1.0"
 }
