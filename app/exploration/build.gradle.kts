@@ -55,8 +55,8 @@ android {
 }
 
 dependencies {
-    implementation(project(":app:regular_feature:homepage"))
-    implementation(project(":app:regular_feature:profile"))
+    implementation(project(":app:features:homepage"))
+    implementation(project(":app:features:profile"))
 
     implementation(libs.androidx.metrics)
     implementation(libs.androidx.tracing.ktx)

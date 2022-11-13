@@ -14,3 +14,7 @@
 	path = app/features
 	url = git@github.com:indramahkota/android-exploration-features.git
 	branch = main
+[submodule "design-system"]
+	path = design-system
+	url = git@github.com:indramahkota/mahkota-design-system.git
+	branch = main
