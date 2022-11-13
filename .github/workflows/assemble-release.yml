@@ -3,7 +3,7 @@ name: Assemble Release
 
 on:
   workflow_run:
-    workflows: ["Scan with Detekt All"]
+    workflows: ["Scan with Detekt"]
     types:
       - completed
 
@@ -78,13 +78,8 @@ jobs:
           keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
 
-      - name: Rename the apk
-        run: |
-          cd app/exploration/build/outputs/apk/release/
-          mv exploration-release-unsigned-signed.apk exploration-release-signed.apk
-
       - name: Upload artifact
         uses: actions/upload-artifact@v3
         with:
           name: exploration-release-signed-apk
-          path: app/exploration/build/outputs/apk/release/exploration-release-signed.apk
+          path: app/exploration/build/outputs/apk/release/

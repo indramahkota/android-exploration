@@ -1,5 +1,5 @@
 # Created by Indra Mahkota
-name: Scan with Detekt All
+name: Scan with Detekt
 
 on:
   push:
