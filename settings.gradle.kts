@@ -63,6 +63,4 @@ plugins {
     id("com.indramahkota.build.logic.convention.settings") version "0.0.11"
 }
 
-includeBuild("design-system")
-
 rootProject.name = "android-exploration"
