@@ -26,13 +26,13 @@ android {
 
     buildTypes {
         debug {
-            resValue("string", "app_name", "[DEBUG] $androidApplicationName")
+            resValue("string", "app_name", "[DBG] $androidApplicationName")
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_dev"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_dev"
         }
 
         qa {
-            resValue("string", "app_name", "[STAGING] $androidApplicationName")
+            resValue("string", "app_name", "[STG] $androidApplicationName")
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_staging"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_staging"
         }
@@ -60,13 +60,22 @@ dependencies {
 
     implementation(libs.androidx.metrics)
     implementation(libs.androidx.tracing.ktx)
-    implementation(libs.compose.material3.windowSizeClass)
 
-    implementation(libs.activity.compose)
     implementation(libs.core.ktx)
     implementation(libs.core.splashscreen)
+    implementation(libs.activity.compose)
     implementation(libs.window.manager)
     implementation(libs.profileinstaller)
+
+    implementation(libs.compose.ui)
+    implementation(libs.compose.ui.tooling)
+    implementation(libs.compose.material)
+    implementation(libs.compose.foundation)
+    implementation(libs.compose.foundation.layout)
+    implementation(libs.compose.material.icons.extended)
+    implementation(libs.compose.ui.util)
+    implementation(libs.compose.runtime.livedata)
+    implementation(libs.compose.runtime.tracing)
 
     implementation(libs.coil)
     implementation(libs.coil.svg)

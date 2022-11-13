@@ -2,9 +2,12 @@ package com.indramahkota.app.exploration
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import androidx.activity.compose.setContent
+import androidx.compose.material.MaterialTheme
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.metrics.performance.JankStats
+import com.indramahkota.app.exploration.regular.feature.profile.Profile
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -26,6 +29,12 @@ class MainActivity : ComponentActivity() {
         // Turn off the decor fitting system windows, which allows us to handle insets,
         // including IME animations
         WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        setContent {
+            MaterialTheme {
+                Profile()
+            }
+        }
     }
 
     override fun onResume() {
