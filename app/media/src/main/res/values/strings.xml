@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_logo">App Logo</string>
+    <string name="app_description">Jetpack Compose Exploration</string>
+
+    <!-- FEATURES HOMEPAGE -->
+    <string name="homepage_hello">Homepage Feature</string>
+</resources>
