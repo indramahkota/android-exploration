@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.indramahkota.app.exploration.feature.designsystem.InCatalog
 import com.indramahkota.app.exploration.feature.homepage.HomePageScreen
 import com.indramahkota.app.exploration.feature.splash.SplashScreen
 import com.indramahkota.app.exploration.navigation.navigation.Screen
@@ -17,6 +18,10 @@ fun SetupNavGraph(navController: NavHostController) {
 
         composable(route = Screen.HomePage.route) {
             HomePageScreen(navHostController = navController)
+        }
+
+        composable(route = Screen.DesignSystem.route) {
+            InCatalog()
         }
     }
 }

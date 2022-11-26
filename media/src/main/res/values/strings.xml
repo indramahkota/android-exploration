@@ -4,4 +4,10 @@
 
     <!-- FEATURES HOMEPAGE -->
     <string name="homepage_hello">Homepage Feature</string>
+
+    <!-- OTHERS -->
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="browse_topic">Browse Topic</string>
+
 </resources>

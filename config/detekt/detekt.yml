@@ -36,7 +36,7 @@ console-reports:
     - 'ProjectStatisticsReport'
     - 'ComplexityReport'
     - 'NotificationReport'
-  # - 'FindingsReport'
+    # - 'FindingsReport'
     - 'FileBasedFindingsReport'
     - 'LiteFindingsReport'
 
@@ -96,22 +96,6 @@ complexity:
     threshold: 10
     includeStaticDeclarations: false
     includePrivateDeclarations: false
-  ComplexMethod:
-    active: true
-    threshold: 40
-    ignoreSingleWhenExpression: false
-    ignoreSimpleWhenEntries: false
-    ignoreNestingFunctions: false
-    nestingFunctions:
-      - 'also'
-      - 'apply'
-      - 'forEach'
-      - 'isNotNull'
-      - 'ifNull'
-      - 'let'
-      - 'run'
-      - 'use'
-      - 'with'
   LabeledExpression:
     active: false
     ignoredLabels: []
@@ -120,7 +104,7 @@ complexity:
     threshold: 600
   LongMethod:
     active: true
-    threshold: 250
+    threshold: 60
   LongParameterList:
     active: true
     functionThreshold: 6
@@ -321,7 +305,6 @@ formatting:
     active: true
     autoCorrect: true
     indentSize: 4
-    continuationIndentSize: 4
   MaximumLineLength:
     active: false # See style.MaxLineLength
     maxLineLength: 120
@@ -373,7 +356,6 @@ formatting:
   ParameterListWrapping:
     active: true
     autoCorrect: true
-    indentSize: 4
     maxLineLength: 120
   SpacingAroundAngleBrackets:
     active: true
@@ -542,8 +524,6 @@ potential-bugs:
     active: true
   DoubleMutabilityForCollection:
     active: true
-  DuplicateCaseInWhenExpression:
-    active: true
   EqualsAlwaysReturnsTrueOrFalse:
     active: true
   EqualsWithHashCodeExist:
@@ -556,7 +536,6 @@ potential-bugs:
     active: true
   IgnoredReturnValue:
     active: true
-    restrictToAnnotatedMethods: true
     returnValueAnnotations:
       - '*.CheckResult'
       - '*.CheckReturnValue'
@@ -582,12 +561,7 @@ potential-bugs:
   MissingPackageDeclaration:
     active: true
     excludes: ['**/*.kts']
-  MissingWhenCase:
-    active: true
-    allowElseExpression: true
   NullableToStringCall:
-    active: true
-  RedundantElseInWhen:
     active: true
   UnconditionalJumpStatementInLoop:
     active: true
@@ -617,9 +591,6 @@ style:
     active: true
   CollapsibleIfStatements:
     active: true
-  DataClassContainsFunctions:
-    active: false
-    conversionFunctionPrefix: 'to'
   DataClassShouldBeImmutable:
     active: true
   DestructuringDeclarationWithTooManyEntries:
@@ -653,12 +624,6 @@ style:
     methods:
       - 'kotlin.io.print'
       - 'kotlin.io.println'
-  ForbiddenPublicDataClass:
-    active: true
-    excludes: ['**']
-    ignorePackages:
-      - '*.internal'
-      - '*.internal.*'
   ForbiddenVoid:
     active: true
     ignoreOverridden: false
@@ -667,13 +632,6 @@ style:
     active: true
     ignoreOverridableFunction: true
     ignoreActualFunction: true
-    excludedFunctions: ''
-  LibraryCodeMustSpecifyReturnType:
-    active: true
-    excludes: ['**']
-  LibraryEntitiesShouldNotBePublic:
-    active: true
-    excludes: ['**']
   LoopWithTooManyJumpStatements:
     active: true
     maxJumpCount: 1
@@ -739,7 +697,6 @@ style:
   ReturnCount:
     active: true
     max: 2
-    excludedFunctions: 'equals'
     excludeLabeled: false
     excludeReturnFromLambda: true
     excludeGuardClauses: false
@@ -771,7 +728,7 @@ style:
   UnnecessaryLet:
     active: true
   UnnecessaryParentheses:
-    active: false
+    active: true
   UntilInsteadOfRangeTo:
     active: true
   UnusedImports:

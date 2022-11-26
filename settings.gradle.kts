@@ -60,4 +60,6 @@ plugins {
     id("com.indramahkota.build.logic.convention.settings") version "0.1.1"
 }
 
+include(":media")
+
 rootProject.name = "android-exploration"
