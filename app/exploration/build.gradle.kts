@@ -63,7 +63,7 @@ dependencies {
     implementation(project(":app:features:splash"))
     implementation(project(":app:features:profile"))
     implementation(project(":app:features:homepage"))
-    implementation(project(":app:features:designsystem"))
+    implementation(project(":app:features:catalog"))
 
     implementation(libs.androidx.metrics)
     implementation(libs.androidx.tracing.ktx)
