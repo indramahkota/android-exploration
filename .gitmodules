@@ -10,3 +10,7 @@
 	path = app/features
 	url = git@github.com:indramahkota/android-exploration-features.git
 	branch = main
+[submodule "app/navigation"]
+	path = app/navigation
+	url = git@github.com:indramahkota/android-exploration-navigation.git
+	branch = main
