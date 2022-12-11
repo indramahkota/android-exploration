@@ -10,7 +10,7 @@ import com.indramahkota.app.exploration.feature.splash.SplashScreen
 import com.indramahkota.app.exploration.navigation.navigation.Screen
 
 @Composable
-fun SetupNavGraph(navController: NavHostController) {
+fun MainNavGraph(navController: NavHostController) {
     NavHost(navController = navController, startDestination = Screen.Splash.route) {
         composable(route = Screen.Splash.route) {
             SplashScreen(navHostController = navController)

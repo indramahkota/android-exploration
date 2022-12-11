@@ -8,7 +8,7 @@ plugins {
     id("com.indramahkota.build.logic.convention.hilt")
 }
 
-val androidApplicationName by extra { "Exploration" }
+val androidApplicationName by extra { "Compose Exploration" }
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }
 val androidApplicationVersionCode by extra { 1 }
 val androidApplicationVersionName by extra { "0.0.0" }
@@ -26,13 +26,13 @@ android {
 
     buildTypes {
         debug {
-            resValue("string", "app_name", "[DBG] $androidApplicationName")
+            resValue("string", "app_name", "$androidApplicationName (Debug)")
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_dev"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_dev"
         }
 
         qa {
-            resValue("string", "app_name", "[STG] $androidApplicationName")
+            resValue("string", "app_name", "$androidApplicationName (Staging)")
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_staging"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_staging"
         }
