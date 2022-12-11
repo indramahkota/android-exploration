@@ -13,7 +13,8 @@ env:
 
 # See: https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 jobs:
-  detekt-scan-all:
+  scan-with-detekt:
+    name: Scan with Detekt
     permissions:
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     runs-on: ubuntu-latest

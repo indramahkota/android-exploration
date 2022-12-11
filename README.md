@@ -25,7 +25,7 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 ## 📝 Features
 
 - CI/CD using [GitHub Actions](https://docs.github.com/en/actions/learn-github-actions/understanding-github-actions)
-- Code smell analyses with [Kotlin Detekt](https://github.com/detekt/detekt)
+- Code smell analysis with [Kotlin Detekt](https://github.com/detekt/detekt)
 - Android gradle project with [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
 - Some dependencies published on [GitHub Packages](https://docs.github.com/en/packages)
 - Modern Android Development with 100% [Kotlin Language](https://kotlinlang.org/)
