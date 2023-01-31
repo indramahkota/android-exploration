@@ -80,7 +80,6 @@ dependencies {
     implementation(libs.compose.foundation)
     implementation(libs.compose.foundation.layout)
     implementation(libs.compose.material3)
-    implementation(libs.compose.material.icons.extended)
     implementation(libs.compose.ui.util)
     implementation(libs.compose.runtime.livedata)
     implementation(libs.compose.runtime.tracing)
