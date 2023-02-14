@@ -52,6 +52,9 @@ enableFeaturePreview("VERSION_CATALOGS")
 pluginManagement {
     repositories {
         maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
+        google()
+        mavenCentral()
+        gradlePluginPortal()
     }
 }
 
@@ -59,6 +62,8 @@ dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
+        google()
+        mavenCentral()
     }
 
     versionCatalogs {
@@ -69,7 +74,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.1.6"
+    id("com.indramahkota.build.logic.convention.settings") version "0.2.1"
 }
 ```
 
@@ -111,8 +116,8 @@ indramahkota {
         // https://developer.android.com/jetpack/androidx/releases/compose
         // compiler and runtime is mandatory property
         // default is v1.3.2 and v1.3.0-rc01
-        compilerVersion.set("1.3.2")
-        runtimeVersion.set("1.3.0-rc01")
+        compilerVersion.set("1.4.2")
+        runtimeVersion.set("1.3.3")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }
@@ -130,7 +135,7 @@ indramahkota {
                 developer(
                     id = "indramahkota",
                     name = "Indra Mahkota",
-                    email = "indramahkota@mail.com"
+                    email = "indramahkota1@gmail.com"
                 )
             }
         }
