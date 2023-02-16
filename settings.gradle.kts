@@ -1,7 +1,5 @@
 @file:Suppress("UnstableApiUsage", "StringLiteralDuplication")
 
-enableFeaturePreview("VERSION_CATALOGS")
-
 // In settings.gradle you can add the repositories you want to add to the project
 pluginManagement {
     repositories {
@@ -50,14 +48,14 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.build.libs.versions:versions-stack:0.0.6")
+            from("com.indramahkota.build.libs.versions:versions-stack:0.0.7")
         }
     }
 }
 
 // Set com.indramahkota.build.logic.convention.* plugins to specific version
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.2.1"
+    id("com.indramahkota.build.logic.convention.settings") version "0.2.6"
 }
 
 rootProject.name = "android-exploration"

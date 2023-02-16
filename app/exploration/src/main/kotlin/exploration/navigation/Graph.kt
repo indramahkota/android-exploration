@@ -17,7 +17,7 @@ fun MainNavGraph(navController: NavHostController) {
         }
 
         composable(route = Screen.HomePage.route) {
-            HomePageScreen(navHostController = navController)
+            HomePageScreen()
         }
 
         composable(route = Screen.Catalog.route) {

@@ -9,6 +9,16 @@ plugins {
     id("com.indramahkota.build.logic.convention.publish-config")
 }
 
+allprojects {
+    gradle.projectsEvaluated {
+        tasks.withType<JavaCompile> {
+            options.compilerArgs.addAll(
+                listOf("-Xlint:unchecked", "-Xlint:deprecation")
+            )
+        }
+    }
+}
+
 // Initial configuration for subprojects
 indramahkota {
     // Default JavaVersion.VERSION_1_8
