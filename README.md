@@ -68,13 +68,13 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.build.libs.versions:versions-stack:0.0.6")
+            from("com.indramahkota.build.libs.versions:versions-stack:0.0.7")
         }
     }
 }
 
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.2.2"
+    id("com.indramahkota.build.logic.convention.settings") version "0.2.6"
 }
 ```
 
