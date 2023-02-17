@@ -9,20 +9,15 @@ plugins {
     id("com.indramahkota.build.logic.convention.publish-config")
 }
 
-allprojects {
-    gradle.projectsEvaluated {
-        tasks.withType<JavaCompile> {
-            options.compilerArgs.addAll(
-                listOf("-Xlint:unchecked", "-Xlint:deprecation")
-            )
-        }
-    }
-}
-
 // Initial configuration for subprojects
 indramahkota {
     // Default JavaVersion.VERSION_1_8
     jvmTarget.set(JavaVersion.VERSION_11)
+    withCompilerArgs {
+        compilerArgs = setOf(
+            "-Xlint:unchecked", "-Xlint:deprecation"
+        )
+    }
 
     // Report directory: $reportsDir/detekt-reports/
     detekt {

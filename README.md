@@ -74,7 +74,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.2.6"
+    id("com.indramahkota.build.logic.convention.settings") version "0.3.1"
 }
 ```
 
