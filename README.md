@@ -95,6 +95,11 @@ val androidVersionName by extra { "0.0.0" }
 indramahkota {
     // Default JavaVersion.VERSION_1_8
     jvmTarget.set(JavaVersion.VERSION_11)
+    withCompilerArgs {
+        compilerArgs = setOf(
+            "-Xlint:unchecked", "-Xlint:deprecation"
+        )
+    }
 
     // Report directory: $reportsDir/detekt-reports/
     detekt {
