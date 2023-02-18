@@ -62,8 +62,8 @@ dependencies {
     // Features module
     implementation(project(":app:features:splash"))
     implementation(project(":app:features:profile"))
-    implementation(project(":app:features:homepage"))
-    implementation(project(":app:features:catalog"))
+    implementation(project(":app:features:homebase"))
+    implementation(project(":app:features:catalogui"))
 
     implementation(libs.androidx.metrics)
     implementation(libs.androidx.tracing.ktx)

@@ -1,20 +1,20 @@
 # Created by Indra Mahkota
-name: Scan with Detekt
+name: Scan-With-Detekt
 
 on:
-  push:
-    branches: ["main"]
-
-# Add specific environment from secret
-env:
-  GITHUB_USERNAME: ${{ secrets.USERNAME }}
-  GITHUB_TOKEN: ${{ secrets.TOKEN }}
-  SSHK: ${{ secrets.SUB_SSHK_A }}
+  workflow_call:
+    secrets:
+      user_id:
+        required: true
+      user_token:
+        required: true
+      user_sshk:
+        required: true
 
 # See: https://docs.github.com/en/code-security/code-scanning/integrating-with-code-scanning/uploading-a-sarif-file-to-github
 jobs:
   scan-with-detekt:
-    name: Scan with Detekt
+    name: Scan With Detekt
     permissions:
       security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
     runs-on: ubuntu-latest
@@ -25,7 +25,7 @@ jobs:
       - name: Get Submodules
         run: |
           mkdir -p $HOME/.ssh
-          echo "$SSHK" > $HOME/.ssh/ssh.key
+          echo "${{secrets.user_sshk}}" > $HOME/.ssh/ssh.key
           chmod 600 $HOME/.ssh/ssh.key
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
           git submodule update --init --recursive
@@ -39,7 +39,13 @@ jobs:
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
 
+      - name: Setup ENV for Gradle
+        run: |
+          export GITHUB_USERNAME="${{secrets.user_id}}"
+          export GITHUB_TOKEN="${{secrets.user_token}}"
+
       - name: Run detekt
+        id: run-detekt
         run: chmod +x gradlew && ./gradlew :detektAll --stacktrace
 
       # Make sure we always run this upload task,
