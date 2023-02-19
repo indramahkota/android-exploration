@@ -55,26 +55,27 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:ui"))
-    implementation(project(":core:designsystem"))
     implementation(project(":app:navigation"))
-
-    // Features module
     implementation(project(":app:features:splash"))
     implementation(project(":app:features:profile"))
     implementation(project(":app:features:homebase"))
     implementation(project(":app:features:catalogui"))
 
+    implementation(project(":core:ui"))
+    implementation(project(":core:designsystem"))
+
+    // Metrics
     implementation(libs.androidx.metrics)
     implementation(libs.androidx.tracing.ktx)
 
+    // AndroidX
     implementation(libs.core.ktx)
     implementation(libs.core.splashscreen)
     implementation(libs.activity.compose)
     implementation(libs.window.manager)
     implementation(libs.profileinstaller)
 
-    // Jetpack Compose
+    // UI Compose
     implementation(libs.compose.ui)
     implementation(libs.compose.ui.tooling)
     implementation(libs.compose.foundation)
@@ -89,8 +90,8 @@ dependencies {
     implementation(libs.hilt.navigation.compose)
     androidTestImplementation(libs.navigation.testing)
 
+    // Others
     implementation(libs.coil)
     implementation(libs.coil.svg)
-
     implementation(libs.timber)
 }

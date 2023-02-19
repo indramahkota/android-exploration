@@ -16,11 +16,11 @@ fun MainNavGraph(navController: NavHostController) {
             SplashScreen(navHostController = navController)
         }
 
-        composable(route = Screen.HomePage.route) {
+        composable(route = Screen.HomeBase.route) {
             HomeBaseScreen(navHostController = navController)
         }
 
-        composable(route = Screen.Catalog.route) {
+        composable(route = Screen.CatalogUI.route) {
             CatalogUIScreen(navHostController = navController)
         }
     }

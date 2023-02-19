@@ -48,14 +48,14 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.build.libs.versions:versions-stack:0.0.7")
+            from("com.indramahkota.build.libs.versions:versions-stack:0.0.8")
         }
     }
 }
 
 // Set com.indramahkota.build.logic.convention.* plugins to specific version
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.3.1"
+    id("com.indramahkota.build.logic.convention.settings") version "0.3.3"
 }
 
 rootProject.name = "android-exploration"

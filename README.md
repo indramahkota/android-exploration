@@ -68,13 +68,13 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.build.libs.versions:versions-stack:0.0.7")
+            from("com.indramahkota.build.libs.versions:versions-stack:0.0.8")
         }
     }
 }
 
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.3.1"
+    id("com.indramahkota.build.logic.convention.settings") version "0.3.3"
 }
 ```
 
@@ -120,7 +120,6 @@ indramahkota {
     compose {
         // https://developer.android.com/jetpack/androidx/releases/compose
         // compiler and runtime is mandatory property
-        // default is v1.3.2 and v1.3.0-rc01
         compilerVersion.set("1.4.2")
         runtimeVersion.set("1.3.3")
         enableComposeCompilerMetrics.set(true)
