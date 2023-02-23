@@ -1,7 +1,7 @@
 <h1 align="center">Android Exploration</h1>
 
 <div align="center">
-<a href="https://github.com/indramahkota/android-exploration/actions/workflows/main-workflows.yml"><img src="https://github.com/indramahkota/android-exploration/actions/workflows/main-workflows.yml/badge.svg?branch=main&amp;event=push" alt="Main-Workflows"></a>
+<a href="https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml"><img src="https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml/badge.svg" alt="Scan with Detekt"/></a> <a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml/badge.svg" alt="Assemble Release"/></a>
 
 <a href="https://github.com/indramahkota/android-exploration/blob/master/LICENSE"><img src="https://img.shields.io/github/license/indramahkota/android-exploration?color=blue" alt="LICENSE"/></a> <a href="https://github.com/indramahkota/android-exploration/stargazers"><img src="https://img.shields.io/github/stars/indramahkota/android-exploration" alt="GitHub Stars"/></a> <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat" alt="All Contributors"/></a>
 </div>
@@ -34,7 +34,7 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 </br>
 
 ## ⬇️ Download the APK
-- Open the [Main-Workflows](https://github.com/indramahkota/android-exploration/actions/workflows/main-workflows.yml)
+- Open the [Assemble Release](https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml)
 - Click the latest success running task
 
 <div align="center">
@@ -74,7 +74,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.3.3"
+    id("com.indramahkota.build.logic.convention.settings") version "0.3.4"
 }
 ```
 

@@ -1,0 +1,83 @@
+# Created by Indra Mahkota
+name: Assemble Release
+
+on:
+  workflow_run:
+    workflows: ["Scan with Detekt"]
+    types:
+      - completed
+
+# Add specific environment from secret
+env:
+  GITHUB_USERNAME: ${{ secrets.USERNAME }}
+  GITHUB_TOKEN: ${{ secrets.TOKEN }}
+  SSHK: ${{ secrets.SUB_SSHK_A }}
+
+jobs:
+  build-project:
+    name: Build Project
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Get Submodules
+        run: |
+          mkdir -p $HOME/.ssh
+          echo "$SSHK" > $HOME/.ssh/ssh.key
+          chmod 600 $HOME/.ssh/ssh.key
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
+          git submodule update --init --recursive
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Run Build
+        run: chmod +x gradlew && ./gradlew build --dry-run --stacktrace
+
+  generate-release-apk:
+    needs: [ build-project ]
+    name: Generate Release Apk
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v3
+
+      - name: Get Submodules
+        run: |
+          mkdir -p $HOME/.ssh
+          echo "$SSHK" > $HOME/.ssh/ssh.key
+          chmod 600 $HOME/.ssh/ssh.key
+          export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
+          git submodule update --init --recursive
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+
+      - name: Run Assemble Release
+        run: chmod +x gradlew && ./gradlew assembleRelease --configuration-cache
+
+      - name: Sign Release Apk
+        uses: r0adkll/sign-android-release@v1
+        with:
+          releaseDirectory: app/exploration/build/outputs/apk/release
+          signingKeyBase64: ${{ secrets.BASE64_CERT }}
+          alias: ${{ secrets.KEYSTORE_ALIAS }}
+          keyStorePassword: ${{ secrets.KEYSTORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: exploration-release-signed-apk
+          path: app/exploration/build/outputs/apk/release/

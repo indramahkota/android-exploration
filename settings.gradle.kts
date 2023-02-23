@@ -55,7 +55,7 @@ dependencyResolutionManagement {
 
 // Set com.indramahkota.build.logic.convention.* plugins to specific version
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.3.3"
+    id("com.indramahkota.build.logic.convention.settings") version "0.3.4"
 }
 
 rootProject.name = "android-exploration"
