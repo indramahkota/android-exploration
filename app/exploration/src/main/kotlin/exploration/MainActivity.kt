@@ -15,7 +15,6 @@ import javax.inject.Inject
 
 // https://stackoverflow.com/questions/67891362/
 // componentactivity-vs-appcompactactivity-in-android-jetpackcompose
-
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     /**

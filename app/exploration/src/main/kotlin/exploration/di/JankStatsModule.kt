@@ -1,13 +1,13 @@
 package com.indramahkota.app.exploration.di
 
 import android.app.Activity
+import android.util.Log
 import android.view.Window
 import androidx.metrics.performance.JankStats
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
-import timber.log.Timber
 
 @Module
 @InstallIn(ActivityComponent::class)
@@ -23,7 +23,7 @@ object JankStatsModule {
             // Make sure to only log janky frames.
             if (frameData.isJank) {
                 // We're currently logging this but would better report it to a backend.
-                Timber.tag("Exploration Jank").v(frameData.toString())
+                Log.v("Exploration Jank", frameData.toString())
             }
         }
     }

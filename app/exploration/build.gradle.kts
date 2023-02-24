@@ -1,7 +1,7 @@
 @file:Suppress("UnstableApiUsage", "StringLiteralDuplication")
 
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
-import com.indramahkota.build.logic.convention.android.dsl.qa
+import com.indramahkota.build.logic.convention.android.dsl.staging
 
 plugins {
     id("com.indramahkota.build.logic.convention.compose-app")
@@ -26,19 +26,19 @@ android {
 
     buildTypes {
         debug {
-            resValue("string", "app_name", "$androidApplicationName (Debug)")
+            manifestPlaceholders["appName"] = androidApplicationName
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_dev"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_dev"
         }
 
-        qa {
-            resValue("string", "app_name", "$androidApplicationName (Staging)")
+        staging {
+            manifestPlaceholders["appName"] = androidApplicationName
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_staging"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_staging"
         }
 
         release {
-            resValue("string", "app_name", androidApplicationName)
+            manifestPlaceholders["appName"] = androidApplicationName
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_release"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_release"
         }
@@ -48,7 +48,7 @@ android {
         val variant = this
         variant.outputs.map { it as BaseVariantOutputImpl }.forEach { output ->
             val outputFileName =
-                "$androidApplicationName-V${variant.versionName}-${variant.versionCode}.apk"
+                "${androidApplicationName}-V${variant.versionName}-${variant.versionCode}.apk"
             output.outputFileName = outputFileName
         }
     }
@@ -93,5 +93,4 @@ dependencies {
     // Others
     implementation(libs.coil)
     implementation(libs.coil.svg)
-    implementation(libs.timber)
 }
