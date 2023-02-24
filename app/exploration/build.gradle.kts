@@ -48,7 +48,7 @@ android {
         val variant = this
         variant.outputs.map { it as BaseVariantOutputImpl }.forEach { output ->
             val outputFileName =
-                "${androidApplicationName}-V${variant.versionName}-${variant.versionCode}.apk"
+                "$androidApplicationName-V${variant.versionName}-${variant.versionCode}.apk"
             output.outputFileName = outputFileName
         }
     }
