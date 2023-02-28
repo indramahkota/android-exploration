@@ -47,7 +47,10 @@ indramahkota {
     // Set maven pom for all sub projects
     publishing {
         pom {
-            setGitHubProject("indramahkota/android-exploration")
+            setGitHubProject {
+                owner = "indramahkota"
+                repository = "android-exploration"
+            }
 
             licenses {
                 mit()

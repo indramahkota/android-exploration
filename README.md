@@ -47,8 +47,6 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 
 ```kt
 // Root project settings.gradle.kts
-enableFeaturePreview("VERSION_CATALOGS")
-
 pluginManagement {
     repositories {
         maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
@@ -74,7 +72,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.3.4"
+    id("com.indramahkota.build.logic.convention.settings") version "0.3.5"
 }
 ```
 
@@ -129,7 +127,10 @@ indramahkota {
     // Set maven pom for all sub projects
     publishing {
         pom {
-            setGitHubProject("indramahkota/android-exploration")
+            setGitHubProject {
+                owner = "indramahkota"
+                repository = "android-exploration"
+            }
 
             licenses {
                 mit()

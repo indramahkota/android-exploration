@@ -32,16 +32,6 @@ dependencyResolutionManagement {
             }
         }
 
-        // Register the AndroidX snapshot repository first so snapshots don't attempt (and fail)
-        // to download from the non-snapshot repositories
-        maven(url = "https://androidx.dev/snapshots/builds/8455591/artifacts/repository") {
-            name = "AndroidX Snapshot"
-            content {
-                // The AndroidX snapshot repository will only have androidx artifacts, don't
-                // bother trying to find other ones
-                includeGroupByRegex("androidx\\..*")
-            }
-        }
         google()
         mavenCentral()
     }
@@ -55,7 +45,7 @@ dependencyResolutionManagement {
 
 // Set com.indramahkota.build.logic.convention.* plugins to specific version
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.3.5"
+    id("com.indramahkota.build.logic.convention.settings") version "0.3.7"
 }
 
 rootProject.name = "android-exploration"
