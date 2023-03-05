@@ -1,17 +1,22 @@
-@file:Suppress("UnstableApiUsage", "StringLiteralDuplication")
+@file:Suppress("UnstableApiUsage", "StringLiteralDuplication", "DSL_SCOPE_VIOLATION")
 
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
+import com.google.android.libraries.mapsplatform.secrets_gradle_plugin.loadPropertiesFile
 import com.indramahkota.build.logic.convention.android.dsl.staging
 
 plugins {
     id("com.indramahkota.build.logic.convention.compose-app")
     id("com.indramahkota.build.logic.convention.hilt")
+
+    // Initiate others plugins
+    alias(libs.plugins.secret.gradle.plugin)
 }
 
 val androidApplicationName by extra { "Compose Exploration" }
 val androidApplicationId by extra { "com.indramahkota.app.exploration" }
 val androidApplicationVersionCode by extra { 1 }
 val androidApplicationVersionName by extra { "0.0.0" }
+val secretPropertiesFile by extra { "../../secrets.properties" }
 
 // Using initial configuration from root project
 android {
@@ -22,6 +27,16 @@ android {
         applicationId = androidApplicationId
         versionCode = androidApplicationVersionCode
         versionName = androidApplicationVersionName
+    }
+
+    signingConfigs {
+        create("release") {
+            val secrets = loadPropertiesFile(secretPropertiesFile)
+            keyAlias = secrets.getProperty("KEY_ALIAS")
+            keyPassword = secrets.getProperty("KEY_PASSWORD")
+            storeFile = file(secrets.getProperty("STORE_FILE"))
+            storePassword = secrets.getProperty("STORE_PASSWORD")
+        }
     }
 
     buildTypes {
@@ -41,6 +56,7 @@ android {
             manifestPlaceholders["appName"] = androidApplicationName
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_release"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_release"
+            signingConfig = signingConfigs.getByName("release")
         }
     }
 
@@ -52,6 +68,17 @@ android {
             output.outputFileName = outputFileName
         }
     }
+}
+
+// Mandatory for get data from secrets.properties in this module
+secrets {
+    // Change the properties file from the default "local.properties" in your root project
+    // to another properties file in your root project.
+    propertiesFileName = "secrets.properties"
+
+    // A properties file containing default secret values. This file can be checked in version
+    // control.
+    defaultPropertiesFileName = "secrets.defaults.properties"
 }
 
 dependencies {

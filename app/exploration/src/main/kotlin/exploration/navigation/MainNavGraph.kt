@@ -5,6 +5,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.indramahkota.app.exploration.feature.catalogui.navigation.catalogUINavigation
 import com.indramahkota.app.exploration.feature.homebase.navigation.homeBaseNavigation
+import com.indramahkota.app.exploration.feature.profile.navigation.profileNavigation
 import com.indramahkota.app.exploration.feature.splash.navigation.splashNavigation
 import com.indramahkota.app.exploration.navigation.navigation.Screen
 
@@ -14,19 +15,9 @@ fun MainNavGraph(navController: NavHostController) {
         navController = navController,
         startDestination = Screen.Splash.route
     ) {
-        /**
-         * Splash Module Navigation
-         * */
         splashNavigation(navController = navController)
-
-        /**
-         * Home Base Module Navigation
-         * */
         homeBaseNavigation(navController = navController)
-
-        /**
-         * Catalog UI Module Navigation
-         * */
+        profileNavigation(navController = navController)
         catalogUINavigation(navController = navController)
     }
 }

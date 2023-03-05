@@ -29,6 +29,7 @@ jobs:
           chmod 600 $HOME/.ssh/ssh.key
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
           git submodule update --init --recursive
+
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
@@ -37,6 +38,12 @@ jobs:
 
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
+
+      - name: Setup Secrets
+        run: |
+          mkdir -p ./keystore
+          echo "${{ secrets.BASE64_CERT }}" | base64 -di > ./keystore/release-key.jks
+          echo "${{ secrets.SECRET_PROPERTIES }}" > ./secrets.properties
 
       - name: Run detekt
         run: chmod +x gradlew && ./gradlew :detektAll --stacktrace

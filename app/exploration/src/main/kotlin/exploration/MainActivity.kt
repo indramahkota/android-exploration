@@ -13,16 +13,10 @@ import com.indramahkota.app.exploration.navigation.MainNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-// https://stackoverflow.com/questions/67891362/
-// componentactivity-vs-appcompactactivity-in-android-jetpackcompose
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-    /**
-     * Lazily inject [JankStats], which is used to track jank throughout the app.
-     */
     @Inject
     lateinit var lazyStats: dagger.Lazy<JankStats>
-
     private lateinit var navController: NavHostController
 
     override fun onCreate(savedInstanceState: Bundle?) {
