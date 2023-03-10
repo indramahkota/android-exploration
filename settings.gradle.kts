@@ -38,7 +38,7 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.build.libs.versions:versions-stack:0.1.0")
+            from("com.indramahkota.build.libs.versions:versions-stack:0.1.1")
         }
     }
 }
