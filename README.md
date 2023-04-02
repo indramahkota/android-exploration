@@ -1,7 +1,7 @@
 <h1 align="center">Android Exploration</h1>
 
 <div align="center">
-<a href="https://remote.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml"><img src="https://remote.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml/badge.svg" alt="Scan with Detekt"/></a> <a href="https://remote.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://remote.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml/badge.svg" alt="Assemble Release"/></a>
+<a href="https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml"><img src="https://github.com/indramahkota/android-exploration/actions/workflows/detekt-all.yml/badge.svg" alt="Scan with Detekt"/></a> <a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml/badge.svg" alt="Assemble Release"/></a>
 
 <a href="https://github.com/indramahkota/android-exploration/blob/master/LICENSE"><img src="https://img.shields.io/github/license/indramahkota/android-exploration?color=blue" alt="LICENSE"/></a> <a href="https://github.com/indramahkota/android-exploration/stargazers"><img src="https://img.shields.io/github/stars/indramahkota/android-exploration" alt="GitHub Stars"/></a> <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat" alt="All Contributors"/></a>
 </div>
@@ -38,7 +38,7 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 - Click the latest success running task
 
 <div align="center">
-<a href="https://remote.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://user-images.githubusercontent.com/34052126/193442434-1a36f7d2-a378-4230-9315-c044b030320f.png" alt="Download the APK"/></a>
+<a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://user-images.githubusercontent.com/34052126/193442434-1a36f7d2-a378-4230-9315-c044b030320f.png" alt="Download the APK"/></a>
 </div>
 
 </br>
@@ -66,13 +66,13 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.build.libs.versions:versions-stack:0.1.0")
+            from("com.indramahkota.build.libs.versions:versions-stack:0.1.2")
         }
     }
 }
 
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.4.0"
+    id("com.indramahkota.build.logic.convention.settings") version "0.4.1"
 }
 ```
 
