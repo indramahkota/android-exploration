@@ -82,14 +82,15 @@ secrets {
 }
 
 dependencies {
-    implementation(project(":app:navigation"))
-    implementation(project(":app:features:splash"))
-    implementation(project(":app:features:profile"))
-    implementation(project(":app:features:homebase"))
-    implementation(project(":app:features:catalogui"))
+    implementation(project(":features:catalogui"))
+    implementation(project(":features:homebase"))
+    implementation(project(":features:profile"))
+    implementation(project(":features:splash"))
 
-    implementation(project(":core:ui"))
     implementation(project(":core:designsystem"))
+    implementation(project(":core:media"))
+    implementation(project(":core:navigation"))
+    implementation(project(":core:ui"))
 
     // Metrics
     implementation(libs.androidx.metrics)
