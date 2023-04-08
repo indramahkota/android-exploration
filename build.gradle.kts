@@ -1,12 +1,12 @@
-import com.indramahkota.build.logic.convention.publishing.dsl.developer
-import com.indramahkota.build.logic.convention.publishing.dsl.mit
-import com.indramahkota.build.logic.convention.publishing.dsl.setGitHubProject
+import com.indramahkota.gradle.publishing.dsl.developer
+import com.indramahkota.gradle.publishing.dsl.mit
+import com.indramahkota.gradle.publishing.dsl.setGitHubProject
 
 plugins {
-    id("com.indramahkota.build.logic.convention.detekt")
-    id("com.indramahkota.build.logic.convention.android-config")
-    id("com.indramahkota.build.logic.convention.compose-config")
-    id("com.indramahkota.build.logic.convention.publish-config")
+    id("com.indramahkota.detekt")
+    id("com.indramahkota.android.config")
+    id("com.indramahkota.compose.config")
+    id("com.indramahkota.publish.config")
 }
 
 // Initial configuration for subprojects

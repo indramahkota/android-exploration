@@ -2,11 +2,11 @@
 
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import com.google.android.libraries.mapsplatform.secrets_gradle_plugin.loadPropertiesFile
-import com.indramahkota.build.logic.convention.android.dsl.staging
+import com.indramahkota.gradle.android.dsl.staging
 
 plugins {
-    id("com.indramahkota.build.logic.convention.compose-app")
-    id("com.indramahkota.build.logic.convention.hilt")
+    id("com.indramahkota.compose.app")
+    id("com.indramahkota.hilt")
 
     // Initiate others plugins
     alias(libs.plugins.secret.gradle.plugin)
