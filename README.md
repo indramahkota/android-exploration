@@ -66,26 +66,27 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.build.libs.versions:versions-stack:0.1.2")
+            from("com.indramahkota.gradle.version:android-stack:0.0.0")
         }
     }
 }
 
+// Set com.indramahkota.* plugins to specific version
 plugins {
-    id("com.indramahkota.build.logic.convention.settings") version "0.4.1"
+    id("com.indramahkota.settings") version "0.0.1"
 }
 ```
 
 ```kt
 // Root project build.gradle.kts
 plugins {
-    id("com.indramahkota.build.logic.convention.detekt")
-    id("com.indramahkota.build.logic.convention.android-config")
-    id("com.indramahkota.build.logic.convention.compose-config")
-    id("com.indramahkota.build.logic.convention.publish-config")
+    id("com.indramahkota.detekt")
+    id("com.indramahkota.android.config")
+    id("com.indramahkota.compose.config")
+    id("com.indramahkota.publish.config")
 }
 
-val androidApplicationId by extra { "com.indramahkota.app.exploration" }
+val androidApplicationId by extra { "com.indramahkota.android.exploration" }
 val androidVersionCode by extra { 1 }
 val androidVersionName by extra { "0.0.0" }
 
@@ -154,17 +155,17 @@ indramahkota {
 // In submodules project build.gradle.kts
 plugins {
     // Automatically apply android plugin
-    id("com.indramahkota.build.logic.convention.compose-app")
-    id("com.indramahkota.build.logic.convention.hilt")
+    id("com.indramahkota.compose.app")
+    id("com.indramahkota.hilt")
 }
 
 //or
 
 plugins {
     // Automatically apply android plugin
-    id("com.indramahkota.build.logic.convention.compose-lib")
-    id("com.indramahkota.build.logic.convention.hilt")
-    id("com.indramahkota.build.logic.convention.publishing")
+    id("com.indramahkota.compose.app")
+    id("com.indramahkota.hilt")
+    id("com.indramahkota.publishing")
 }
 ```
 

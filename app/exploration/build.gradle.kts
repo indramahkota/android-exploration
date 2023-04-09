@@ -72,12 +72,7 @@ android {
 
 // Mandatory for get data from secrets.properties in this module
 secrets {
-    // Change the properties file from the default "local.properties" in your root project
-    // to another properties file in your root project.
     propertiesFileName = "secrets.properties"
-
-    // A properties file containing default secret values. This file can be checked in version
-    // control.
     defaultPropertiesFileName = "secrets.defaults.properties"
 }
 
