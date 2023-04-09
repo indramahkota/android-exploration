@@ -13,7 +13,7 @@ plugins {
 }
 
 val androidApplicationName by extra { "Compose Exploration" }
-val androidApplicationId by extra { "com.indramahkota.app.exploration" }
+val androidApplicationId by extra { "com.indramahkota.android.exploration" }
 val androidApplicationVersionCode by extra { 1 }
 val androidApplicationVersionName by extra { "0.0.0" }
 val secretPropertiesFile by extra { "../../secrets.properties" }

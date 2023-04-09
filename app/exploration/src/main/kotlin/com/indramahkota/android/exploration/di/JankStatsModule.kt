@@ -1,4 +1,4 @@
-package com.indramahkota.app.exploration.di
+package com.indramahkota.android.exploration.di
 
 import android.app.Activity
 import android.util.Log

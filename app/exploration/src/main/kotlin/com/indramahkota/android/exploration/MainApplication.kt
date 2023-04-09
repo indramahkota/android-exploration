@@ -1,4 +1,4 @@
-package com.indramahkota.app.exploration
+package com.indramahkota.android.exploration
 
 import android.app.Application
 import coil.ImageLoader

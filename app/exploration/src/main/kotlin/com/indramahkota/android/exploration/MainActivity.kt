@@ -1,4 +1,4 @@
-package com.indramahkota.app.exploration
+package com.indramahkota.android.exploration
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -9,7 +9,7 @@ import androidx.metrics.performance.JankStats
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.indramahkota.android.core.designsystem.theme.HoudiniTheme
-import com.indramahkota.app.exploration.navigation.MainNavGraph
+import com.indramahkota.android.exploration.navigation.MainNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
