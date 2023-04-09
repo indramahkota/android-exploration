@@ -8,7 +8,7 @@ import androidx.core.view.WindowCompat
 import androidx.metrics.performance.JankStats
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.indramahkota.app.core.designsystem.theme.HoudiniTheme
+import com.indramahkota.android.core.designsystem.theme.HoudiniTheme
 import com.indramahkota.app.exploration.navigation.MainNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
