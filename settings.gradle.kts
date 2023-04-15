@@ -43,9 +43,9 @@ dependencyResolutionManagement {
     }
 }
 
+rootProject.name = "android-exploration"
+
 // Set com.indramahkota.* plugins to specific version
 plugins {
     id("com.indramahkota.settings") version "0.0.1"
 }
-
-rootProject.name = "android-exploration"

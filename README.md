@@ -100,7 +100,8 @@ indramahkota {
         )
     }
 
-    // Report directory: $reportsDir/detekt-reports/
+    // Report directory: 
+    // $reportsDir/detekt-reports/
     detekt {
         // Related with :detektDiff task
         checkOnlyDiffWithBranch("main") {
@@ -114,8 +115,8 @@ indramahkota {
     }
 
     // Report directory:
-    // - $reportsDir/compose-reports/
-    // - $reportsDir/compose-metrics/
+    // $reportsDir/compose-reports/
+    // $reportsDir/compose-metrics/
     compose {
         // https://developer.android.com/jetpack/androidx/releases/compose
         // compiler and runtime is mandatory property
@@ -163,8 +164,7 @@ plugins {
 
 plugins {
     // Automatically apply android plugin
-    id("com.indramahkota.compose.app")
-    id("com.indramahkota.hilt")
+    id("com.indramahkota.compose.lib")
     id("com.indramahkota.publishing")
 }
 ```
