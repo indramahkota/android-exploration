@@ -66,14 +66,14 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.gradle.version:android-stack:0.0.0")
+            from("com.indramahkota.gradle.version:android-stack:0.0.1")
         }
     }
 }
 
 // Set com.indramahkota.* plugins to specific version
 plugins {
-    id("com.indramahkota.settings") version "0.0.1"
+    id("com.indramahkota.settings") version "0.0.3"
 }
 ```
 
