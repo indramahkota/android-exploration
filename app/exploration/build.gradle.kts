@@ -23,6 +23,10 @@ android {
     namespace = androidApplicationId
     testNamespace = "$androidApplicationId.test"
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = androidApplicationId
         versionCode = androidApplicationVersionCode
@@ -77,15 +81,17 @@ secrets {
 }
 
 dependencies {
-    implementation(project(":features:catalogui"))
-    implementation(project(":features:homebase"))
-    implementation(project(":features:profile"))
-    implementation(project(":features:splash"))
-
+    // Core
     implementation(project(":core:designsystem"))
     implementation(project(":core:media"))
     implementation(project(":core:navigation"))
     implementation(project(":core:ui"))
+
+    // Features
+    implementation(project(":features:catalogui"))
+    implementation(project(":features:homebase"))
+    implementation(project(":features:profile"))
+    implementation(project(":features:splash"))
 
     // Metrics
     implementation(libs.androidx.metrics)

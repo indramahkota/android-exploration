@@ -38,7 +38,7 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.gradle.version:android-stack:0.0.1")
+            from("com.indramahkota.gradle.version:android-stack:0.0.4")
         }
     }
 }
@@ -47,5 +47,5 @@ rootProject.name = "android-exploration"
 
 // Set com.indramahkota.* plugins to specific version
 plugins {
-    id("com.indramahkota.settings") version "0.0.3"
+    id("com.indramahkota.settings") version "0.0.6"
 }

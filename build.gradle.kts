@@ -38,10 +38,10 @@ indramahkota {
     compose {
         // https://developer.android.com/jetpack/androidx/releases/compose
         // compiler and runtime is mandatory property
-        compilerVersion.set("1.4.3")
+        compilerVersion.set("1.5.0")
         // Must be same with supported version
         // Current using bom version 2023.01.00
-        runtimeVersion.set("1.3.3")
+        runtimeVersion.set("1.4.3")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }
