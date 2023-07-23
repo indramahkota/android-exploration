@@ -66,14 +66,14 @@ dependencyResolutionManagement {
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.gradle.version:android-stack:0.0.1")
+            from("com.indramahkota.gradle.version:android-stack:0.0.4")
         }
     }
 }
 
 // Set com.indramahkota.* plugins to specific version
 plugins {
-    id("com.indramahkota.settings") version "0.0.3"
+    id("com.indramahkota.settings") version "0.0.6"
 }
 ```
 
@@ -120,10 +120,10 @@ indramahkota {
     compose {
         // https://developer.android.com/jetpack/androidx/releases/compose
         // compiler and runtime is mandatory property
-        compilerVersion.set("1.4.3")
+        compilerVersion.set("1.5.0")
         // Must be same with supported version
-        // Current using bom version 2023.01.00
-        runtimeVersion.set("1.3.3")
+        // Current using bom version 2023.06.01
+        runtimeVersion.set("1.4.3")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }
