@@ -49,7 +49,15 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 // Root project settings.gradle.kts
 pluginManagement {
     repositories {
-        maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
+        maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/") {
+            name = "GitHubPackages"
+            credentials {
+                username = providers.gradleProperty("github.username").orNull
+                    ?: System.getenv("GITHUB_USERNAME")
+                password = providers.gradleProperty("github.token").orNull
+                    ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -59,36 +67,44 @@ pluginManagement {
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven(url = "https://maven.pkg.github.com/indramahkota/build-logic-public/")
+        maven(url = "https://maven.pkg.github.com/indramahkota/version-catalog-public/") {
+            credentials {
+                username = providers.gradleProperty("github.username").orNull
+                    ?: System.getenv("GITHUB_USERNAME")
+                password = providers.gradleProperty("github.token").orNull
+                    ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
         google()
         mavenCentral()
     }
 
     versionCatalogs {
         create("libs") {
-            from("com.indramahkota.gradle.version:android-stack:0.0.4")
+            from("com.indramahkota.gradle.version:catalog-android:0.0.6")
+        }
+        create("indra") {
+            from("com.indramahkota.gradle.version:catalog-indramahkota:0.0.6")
         }
     }
-}
-
-// Set com.indramahkota.* plugins to specific version
-plugins {
-    id("com.indramahkota.settings") version "0.0.6"
 }
 ```
 
 ```kt
 // Root project build.gradle.kts
 plugins {
-    id("com.indramahkota.detekt")
-    id("com.indramahkota.android.config")
-    id("com.indramahkota.compose.config")
-    id("com.indramahkota.publish.config")
-}
+    alias(indra.plugins.build.logic.publishing) apply false
+    alias(indra.plugins.build.logic.compose.app) apply false
+    alias(indra.plugins.build.logic.compose.lib) apply false
+    alias(indra.plugins.build.logic.android.app) apply false
+    alias(indra.plugins.build.logic.android.lib) apply false
+    alias(indra.plugins.build.logic.hilt) apply false
 
-val androidApplicationId by extra { "com.indramahkota.android.exploration" }
-val androidVersionCode by extra { 1 }
-val androidVersionName by extra { "0.0.0" }
+    alias(indra.plugins.build.logic.android.config)
+    alias(indra.plugins.build.logic.compose.config)
+    alias(indra.plugins.build.logic.publish.config)
+    alias(indra.plugins.build.logic.detekt)
+}
 
 // Initial configuration for subprojects
 indramahkota {
@@ -100,8 +116,7 @@ indramahkota {
         )
     }
 
-    // Report directory: 
-    // $reportsDir/detekt-reports/
+    // Report directory: rootDir/reports/detekt-reports/
     detekt {
         // Related with :detektDiff task
         checkOnlyDiffWithBranch("main") {
@@ -115,15 +130,10 @@ indramahkota {
     }
 
     // Report directory:
-    // $reportsDir/compose-reports/
-    // $reportsDir/compose-metrics/
+    // - rootDir/reports/compose-reports/
+    // - rootDir/reports/compose-metrics/
     compose {
-        // https://developer.android.com/jetpack/androidx/releases/compose
-        // compiler and runtime is mandatory property
-        compilerVersion.set("1.5.0")
-        // Must be same with supported version
-        // Current using bom version 2023.06.01
-        runtimeVersion.set("1.4.3")
+        compilerVersion.set("1.5.1")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }
@@ -156,16 +166,17 @@ indramahkota {
 // In submodules project build.gradle.kts
 plugins {
     // Automatically apply android plugin
-    id("com.indramahkota.compose.app")
-    id("com.indramahkota.hilt")
+    alias(indra.plugins.build.logic.compose.app)
+    alias(indra.plugins.build.logic.hilt)
+    alias(libs.plugins.secret.gradle.plugin)
 }
 
 //or
 
 plugins {
     // Automatically apply android plugin
-    id("com.indramahkota.compose.lib")
-    id("com.indramahkota.publishing")
+    alias(indra.plugins.build.logic.android.lib)
+    alias(indra.plugins.build.logic.publishing)
 }
 ```
 
