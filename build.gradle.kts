@@ -3,10 +3,17 @@ import com.indramahkota.gradle.publishing.dsl.mit
 import com.indramahkota.gradle.publishing.dsl.setGitHubProject
 
 plugins {
-    id("com.indramahkota.detekt")
-    id("com.indramahkota.android.config")
-    id("com.indramahkota.compose.config")
-    id("com.indramahkota.publish.config")
+    alias(indra.plugins.build.logic.publishing) apply false
+    alias(indra.plugins.build.logic.compose.app) apply false
+    alias(indra.plugins.build.logic.compose.lib) apply false
+    alias(indra.plugins.build.logic.android.app) apply false
+    alias(indra.plugins.build.logic.android.lib) apply false
+    alias(indra.plugins.build.logic.hilt) apply false
+
+    alias(indra.plugins.build.logic.android.config)
+    alias(indra.plugins.build.logic.compose.config)
+    alias(indra.plugins.build.logic.publish.config)
+    alias(indra.plugins.build.logic.detekt)
 }
 
 // Initial configuration for subprojects
@@ -19,7 +26,7 @@ indramahkota {
         )
     }
 
-    // Report directory: $reportsDir/detekt-reports/
+    // Report directory: rootDir/reports/detekt-reports/
     detekt {
         // Related with :detektDiff task
         checkOnlyDiffWithBranch("main") {
@@ -33,15 +40,10 @@ indramahkota {
     }
 
     // Report directory:
-    // - $reportsDir/compose-reports/
-    // - $reportsDir/compose-metrics/
+    // - rootDir/reports/compose-reports/
+    // - rootDir/reports/compose-metrics/
     compose {
-        // https://developer.android.com/jetpack/androidx/releases/compose
-        // compiler and runtime is mandatory property
-        compilerVersion.set("1.5.0")
-        // Must be same with supported version
-        // Current using bom version 2023.01.00
-        runtimeVersion.set("1.4.3")
+        compilerVersion.set("1.5.1")
         enableComposeCompilerMetrics.set(true)
         enableComposeCompilerReports.set(true)
     }

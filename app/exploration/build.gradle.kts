@@ -1,14 +1,12 @@
-@file:Suppress("UnstableApiUsage", "StringLiteralDuplication", "DSL_SCOPE_VIOLATION")
+@file:Suppress("StringLiteralDuplication")
 
 import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import com.google.android.libraries.mapsplatform.secrets_gradle_plugin.loadPropertiesFile
 import com.indramahkota.gradle.android.dsl.staging
 
 plugins {
-    id("com.indramahkota.compose.app")
-    id("com.indramahkota.hilt")
-
-    // Initiate others plugins
+    alias(indra.plugins.build.logic.compose.app)
+    alias(indra.plugins.build.logic.hilt)
     alias(libs.plugins.secret.gradle.plugin)
 }
 
@@ -93,31 +91,22 @@ dependencies {
     implementation(project(":features:profile"))
     implementation(project(":features:splash"))
 
-    // Metrics
+    // AndroidX
     implementation(libs.androidx.metrics)
     implementation(libs.androidx.tracing.ktx)
-
-    // AndroidX
-    implementation(libs.core.ktx)
-    implementation(libs.core.splashscreen)
-    implementation(libs.activity.compose)
-    implementation(libs.window.manager)
-    implementation(libs.profileinstaller)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.core.splashscreen)
+    implementation(libs.androidx.window)
+    implementation(libs.androidx.profileinstaller)
 
     // UI Compose
-    implementation(libs.compose.ui)
-    implementation(libs.compose.ui.tooling)
-    implementation(libs.compose.foundation)
-    implementation(libs.compose.foundation.layout)
-    implementation(libs.compose.material3)
-    implementation(libs.compose.ui.util)
-    implementation(libs.compose.runtime.livedata)
-    implementation(libs.compose.runtime.tracing)
+    implementation(libs.activity.compose)
+    implementation(libs.bundles.androidx.compose.bundle)
 
     // Navigation Compose
     implementation(libs.navigation.compose)
     implementation(libs.hilt.navigation.compose)
-    androidTestImplementation(libs.navigation.testing)
+    androidTestImplementation(libs.navigation.compose)
 
     // Others
     implementation(libs.coil)
