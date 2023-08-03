@@ -45,7 +45,7 @@ jobs:
           echo "${{ secrets.SECRET_PROPERTIES }}" > ./secrets.properties
 
       - name: Run Build
-        run: chmod +x gradlew && ./gradlew build --dry-run --stacktrace
+        run: chmod +x gradlew && ./gradlew --no-configuration-cache build
 
   generate-release-apk:
     needs: [ build-project ]
@@ -79,7 +79,7 @@ jobs:
           echo "${{ secrets.SECRET_PROPERTIES }}" > ./secrets.properties
 
       - name: Run Assemble Release
-        run: chmod +x gradlew && ./gradlew assembleRelease --configuration-cache
+        run: chmod +x gradlew && ./gradlew --no-configuration-cache assembleRelease
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3

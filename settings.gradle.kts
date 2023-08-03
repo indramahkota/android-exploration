@@ -41,20 +41,15 @@ dependencyResolutionManagement {
     }
 }
 
-fun File.module(rootDir: File): String? =
-    parent?.toString()?.replace(rootDir.toString(), "")?.replace(File.separator, ":")
-
-val fileName = "build.gradle.kts"
-val dirs = setOf("app", "core", "data", "features")
-dirs.parallelStream().forEach { dir ->
-    File(rootDir, dir).walkBottomUp()
-        .filter { it.name == fileName && it.isFile }
-        .forEach { file ->
-            file.module(rootDir)?.let {
-                include(it)
-                project(it).projectDir = file.parentFile
-            }
-        }
-}
-
 rootProject.name = "android-exploration"
+
+include(":app:exploration")
+include(":core:designsystem")
+include(":core:media")
+include(":core:navigation")
+include(":core:ui")
+include(":data:remote")
+include(":features:catalogui")
+include(":features:homebase")
+include(":features:profile")
+include(":features:splash")
