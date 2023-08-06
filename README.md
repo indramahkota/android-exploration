@@ -93,12 +93,11 @@ dependencyResolutionManagement {
 ```kt
 // Root project build.gradle.kts
 plugins {
-    alias(indra.plugins.build.logic.publishing) apply false
     alias(indra.plugins.build.logic.compose.app) apply false
     alias(indra.plugins.build.logic.compose.lib) apply false
     alias(indra.plugins.build.logic.android.app) apply false
     alias(indra.plugins.build.logic.android.lib) apply false
-    alias(indra.plugins.build.logic.hilt) apply false
+    alias(indra.plugins.build.logic.publishing) apply false
 
     alias(indra.plugins.build.logic.android.config)
     alias(indra.plugins.build.logic.compose.config)
@@ -167,7 +166,6 @@ indramahkota {
 plugins {
     // Automatically apply android plugin
     alias(indra.plugins.build.logic.compose.app)
-    alias(indra.plugins.build.logic.hilt)
     alias(libs.plugins.secret.gradle.plugin)
 }
 

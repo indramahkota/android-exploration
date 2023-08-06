@@ -3,12 +3,11 @@ import com.indramahkota.gradle.publishing.dsl.mit
 import com.indramahkota.gradle.publishing.dsl.setGitHubProject
 
 plugins {
-    alias(indra.plugins.build.logic.publishing) apply false
-    alias(indra.plugins.build.logic.compose.app) apply false
-    alias(indra.plugins.build.logic.compose.lib) apply false
     alias(indra.plugins.build.logic.android.app) apply false
     alias(indra.plugins.build.logic.android.lib) apply false
-    alias(indra.plugins.build.logic.hilt) apply false
+    alias(indra.plugins.build.logic.compose.app) apply false
+    alias(indra.plugins.build.logic.compose.lib) apply false
+    alias(indra.plugins.build.logic.publishing) apply false
 
     alias(indra.plugins.build.logic.android.config)
     alias(indra.plugins.build.logic.compose.config)
@@ -26,7 +25,8 @@ indramahkota {
         )
     }
 
-    // Report directory: rootDir/reports/detekt-reports/
+    // Report directory:
+    // rootDir/reports/detekt-reports/
     detekt {
         // Related with :detektDiff task
         checkOnlyDiffWithBranch("main") {
@@ -36,12 +36,12 @@ indramahkota {
 
     android {
         minSdk.set(23)
-        targetSdk.set(33)
+        targetSdk.set(34)
     }
 
     // Report directory:
-    // - rootDir/reports/compose-reports/
-    // - rootDir/reports/compose-metrics/
+    // rootDir/reports/compose-reports/
+    // rootDir/reports/compose-metrics/
     compose {
         compilerVersion.set("1.5.1")
         enableComposeCompilerMetrics.set(true)
