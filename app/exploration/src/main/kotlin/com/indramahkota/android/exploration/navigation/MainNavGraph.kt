@@ -4,18 +4,16 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import com.indramahkota.android.core.navigation.Screen
-import com.indramahkota.android.feature.catalogui.navigation.catalogUINavigation
+import com.indramahkota.android.feature.designsystem.navigation.designSystemCatalogNavigation
 import com.indramahkota.android.feature.homebase.navigation.homeBaseNavigation
-import com.indramahkota.android.feature.splash.navigation.splashNavigation
 
 @Composable
 fun MainNavGraph(navController: NavHostController) {
     NavHost(
         navController = navController,
-        startDestination = Screen.Splash.route
+        startDestination = Screen.HomeBase.route
     ) {
-        splashNavigation(navController = navController)
         homeBaseNavigation(navController = navController)
-        catalogUINavigation(navController = navController)
+        designSystemCatalogNavigation(navController = navController)
     }
 }

@@ -55,7 +55,10 @@ android {
             manifestPlaceholders["appName"] = androidApplicationName
             manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_release"
             manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_release"
+
             signingConfig = signingConfigs.getByName("release")
+            isMinifyEnabled = true
+            isShrinkResources = true
         }
     }
 
@@ -80,9 +83,8 @@ dependencies {
     implementation(project(":core:ui"))
 
     // Features
-    implementation(project(":features:catalogui"))
+    implementation(project(":features:designsystem"))
     implementation(project(":features:homebase"))
-    implementation(project(":features:splash"))
 
     // AndroidX
     implementation(libs.androidx.metrics)
@@ -101,4 +103,9 @@ dependencies {
     // Others
     implementation(libs.coil)
     implementation(libs.coil.svg)
+
+    // Koin
+    implementation(libs.koin.core)
+    implementation(libs.koin.core.coroutines)
+    implementation(libs.koin.android)
 }

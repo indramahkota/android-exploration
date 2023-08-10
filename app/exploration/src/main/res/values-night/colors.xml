@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="text_primary">@color/white</color>
-    <color name="background_primary">@color/general_dark</color>
+    <color name="background_primary">#FF06090D</color>
 </resources>
