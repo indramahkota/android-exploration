@@ -9,16 +9,16 @@ import org.koin.dsl.lazyModule
 
 @OptIn(KoinExperimentalAPI::class)
 val appModule = lazyModule {
-    single<ImageLoader> {
-        ImageLoader.Builder(androidContext())
-            .components {
-                add(SvgDecoder.Factory())
-            }
-            .build()
-    }
+  single<ImageLoader> {
+    ImageLoader.Builder(androidContext())
+      .components {
+        add(SvgDecoder.Factory())
+      }
+      .build()
+  }
 }
 
 @OptIn(KoinExperimentalAPI::class)
 val allModules = lazyModule {
-    includes(appModule)
+  includes(appModule)
 }

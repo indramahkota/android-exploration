@@ -11,21 +11,21 @@ import com.indramahkota.android.core.designsystem.theme.HoudiniTheme
 import com.indramahkota.android.exploration.navigation.MainNavGraph
 
 class MainActivity : ComponentActivity() {
-    private lateinit var navController: NavHostController
+  private lateinit var navController: NavHostController
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        installSplashScreen()
-        super.onCreate(savedInstanceState)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    installSplashScreen()
+    super.onCreate(savedInstanceState)
 
-        // Turn off the decor fitting system windows, which allows us to handle insets,
-        // including IME animations
-        WindowCompat.setDecorFitsSystemWindows(window, false)
+    // Turn off the decor fitting system windows, which allows us to handle insets,
+    // including IME animations
+    WindowCompat.setDecorFitsSystemWindows(window, false)
 
-        setContent {
-            HoudiniTheme {
-                navController = rememberNavController()
-                MainNavGraph(navController = navController)
-            }
-        }
+    setContent {
+      HoudiniTheme {
+        navController = rememberNavController()
+        MainNavGraph(navController = navController)
+      }
     }
+  }
 }

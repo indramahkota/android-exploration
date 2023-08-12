@@ -9,11 +9,11 @@ import com.indramahkota.android.feature.homebase.navigation.homeBaseNavigation
 
 @Composable
 fun MainNavGraph(navController: NavHostController) {
-    NavHost(
-        navController = navController,
-        startDestination = Screen.HomeBase.route
-    ) {
-        homeBaseNavigation(navController = navController)
-        designSystemCatalogNavigation(navController = navController)
-    }
+  NavHost(
+    navController = navController,
+    startDestination = Screen.HomeBase.route
+  ) {
+    homeBaseNavigation(navController = navController)
+    designSystemCatalogNavigation(navController = navController)
+  }
 }

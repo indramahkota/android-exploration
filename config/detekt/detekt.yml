@@ -280,7 +280,7 @@ formatting:
     #  Issue: https://github.com/pinterest/ktlint/issues/1159
     active: false
     autoCorrect: true
-    indentSize: 4
+    indentSize: 2
     maxLineLength: 120
   ChainWrapping:
     active: true
@@ -304,7 +304,7 @@ formatting:
   Indentation:
     active: true
     autoCorrect: true
-    indentSize: 4
+    indentSize: 2
   MaximumLineLength:
     active: false # See style.MaxLineLength
     maxLineLength: 120
