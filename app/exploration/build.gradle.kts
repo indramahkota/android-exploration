@@ -28,6 +28,7 @@ android {
     applicationId = androidApplicationId
     versionCode = androidApplicationVersionCode
     versionName = androidApplicationVersionName
+    resourceConfigurations.addAll(listOf("en", "in"))
   }
 
   signingConfigs {
