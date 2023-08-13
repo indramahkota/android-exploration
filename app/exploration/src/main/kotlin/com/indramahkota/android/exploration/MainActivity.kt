@@ -7,7 +7,7 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
-import com.indramahkota.android.core.designsystem.theme.HoudiniTheme
+import com.indramahkota.android.core.designsystem.theme.AppTheme
 import com.indramahkota.android.exploration.navigation.MainNavGraph
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +22,7 @@ class MainActivity : ComponentActivity() {
     WindowCompat.setDecorFitsSystemWindows(window, false)
 
     setContent {
-      HoudiniTheme {
+      AppTheme {
         navController = rememberNavController()
         MainNavGraph(navController = navController)
       }
