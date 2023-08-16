@@ -93,16 +93,16 @@ dependencyResolutionManagement {
 ```kt
 // Root project build.gradle.kts
 plugins {
-    alias(indra.plugins.build.logic.compose.app) apply false
-    alias(indra.plugins.build.logic.compose.lib) apply false
-    alias(indra.plugins.build.logic.android.app) apply false
-    alias(indra.plugins.build.logic.android.lib) apply false
-    alias(indra.plugins.build.logic.publishing) apply false
+    alias(indra.plugins.convention.compose.app) apply false
+    alias(indra.plugins.convention.compose.lib) apply false
+    alias(indra.plugins.convention.android.app) apply false
+    alias(indra.plugins.convention.android.lib) apply false
+    alias(indra.plugins.convention.publishing) apply false
 
-    alias(indra.plugins.build.logic.android.config)
-    alias(indra.plugins.build.logic.compose.config)
-    alias(indra.plugins.build.logic.publish.config)
-    alias(indra.plugins.build.logic.detekt)
+    alias(indra.plugins.convention.android.config)
+    alias(indra.plugins.convention.compose.config)
+    alias(indra.plugins.convention.publish.config)
+    alias(indra.plugins.convention.detekt)
 }
 
 // Initial configuration for subprojects
@@ -165,7 +165,7 @@ indramahkota {
 // In submodules project build.gradle.kts
 plugins {
     // Automatically apply android plugin
-    alias(indra.plugins.build.logic.compose.app)
+    alias(indra.plugins.convention.compose.app)
     alias(libs.plugins.secret.gradle.plugin)
 }
 
@@ -173,8 +173,8 @@ plugins {
 
 plugins {
     // Automatically apply android plugin
-    alias(indra.plugins.build.logic.android.lib)
-    alias(indra.plugins.build.logic.publishing)
+    alias(indra.plugins.convention.android.lib)
+    alias(indra.plugins.convention.publishing)
 }
 ```
 

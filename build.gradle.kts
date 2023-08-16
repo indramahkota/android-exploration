@@ -3,32 +3,29 @@ import com.indramahkota.gradle.publishing.dsl.mit
 import com.indramahkota.gradle.publishing.dsl.setGitHubProject
 
 plugins {
-  alias(indra.plugins.build.logic.android.app) apply false
-  alias(indra.plugins.build.logic.android.lib) apply false
-  alias(indra.plugins.build.logic.compose.app) apply false
-  alias(indra.plugins.build.logic.compose.lib) apply false
-  alias(indra.plugins.build.logic.publishing) apply false
+  alias(libs.plugins.kotlin.android) apply false
+  alias(libs.plugins.android.library) apply false
+  alias(libs.plugins.android.application) apply false
+  alias(indra.plugins.convention.android.app) apply false
+  alias(indra.plugins.convention.android.lib) apply false
+  alias(indra.plugins.convention.compose.app) apply false
+  alias(indra.plugins.convention.compose.lib) apply false
+  alias(indra.plugins.convention.publishing) apply false
 
-  alias(indra.plugins.build.logic.android.config)
-  alias(indra.plugins.build.logic.compose.config)
-  alias(indra.plugins.build.logic.publish.config)
-  alias(indra.plugins.build.logic.detekt)
+  alias(indra.plugins.convention.android.config)
+  alias(indra.plugins.convention.compose.config)
+  alias(indra.plugins.convention.publish.config)
+  alias(libs.plugins.detekt.gradle.plugin)
+  alias(indra.plugins.convention.detekt)
 }
 
 // Initial configuration for subprojects
 indramahkota {
-  // Default JavaVersion.VERSION_1_8
   jvmTarget.set(JavaVersion.VERSION_11)
-  withCompilerArgs {
-    compilerArgs = setOf(
-      "-Xlint:unchecked", "-Xlint:deprecation"
-    )
-  }
 
   // Report directory:
   // rootDir/reports/detekt-reports/
   detekt {
-    // Related with :detektDiff task
     checkOnlyDiffWithBranch("main") {
       fileExtensions = setOf(".kt", ".kts")
     }

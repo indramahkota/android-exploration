@@ -1,11 +1,13 @@
 @file:Suppress("StringLiteralDuplication")
 
-import com.android.build.gradle.internal.api.BaseVariantOutputImpl
 import com.google.android.libraries.mapsplatform.secrets_gradle_plugin.loadPropertiesFile
 import com.indramahkota.gradle.android.dsl.staging
 
 plugins {
-  alias(indra.plugins.build.logic.compose.app)
+  alias(libs.plugins.kotlin.android)
+  alias(libs.plugins.android.application)
+  alias(indra.plugins.convention.android.app)
+  alias(indra.plugins.convention.compose.app)
   alias(libs.plugins.secret.gradle.plugin)
 }
 
@@ -28,7 +30,6 @@ android {
     applicationId = androidApplicationId
     versionCode = androidApplicationVersionCode
     versionName = androidApplicationVersionName
-    resourceConfigurations.addAll(listOf("en", "in"))
   }
 
   signingConfigs {
@@ -60,12 +61,6 @@ android {
       signingConfig = signingConfigs.getByName("release")
       isMinifyEnabled = true
       isShrinkResources = true
-    }
-  }
-
-  applicationVariants.all {
-    outputs.map { it as BaseVariantOutputImpl }.forEach {
-      it.outputFileName = "$androidApplicationName-v$versionName-$versionCode.apk"
     }
   }
 }
