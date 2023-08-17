@@ -17,7 +17,6 @@ val secretPropertiesFile by extra { "../../secrets.properties" }
 // Using initial configuration from root project
 android {
   namespace = androidApplicationId
-  testNamespace = "$androidApplicationId.test"
 
   buildFeatures {
     buildConfig = true

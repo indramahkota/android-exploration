@@ -11,7 +11,7 @@ import com.indramahkota.android.feature.homebase.navigation.homeBaseNavigation
 fun MainNavGraph(navController: NavHostController) {
   NavHost(
     navController = navController,
-    startDestination = Screen.HomeBase.route
+    startDestination = Screen.HomeBase.route,
   ) {
     homeBaseNavigation(navController = navController)
     designSystemCatalogNavigation(navController = navController)

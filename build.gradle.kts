@@ -57,7 +57,7 @@ indramahkota {
         developer(
           id = "indramahkota",
           name = "Indra Mahkota",
-          email = "indramahkota1@gmail.com"
+          email = "indramahkota1@gmail.com",
         )
       }
     }

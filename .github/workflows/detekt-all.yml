@@ -3,7 +3,7 @@ name: Scan with Detekt
 
 on:
   push:
-    branches: [ "main" ]
+    branches: ["main"]
 
 # Add specific environment from secret
 env:

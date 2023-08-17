@@ -10,7 +10,8 @@
 
 ## 💻 Requirements
 
-> You need to use [Android Studio](https://developer.android.com/studio) to run this project and github token for fetch some dependencies
+> You need to use [Android Studio](https://developer.android.com/studio) to run this project and github token for fetch
+> some dependencies
 
 ```bash
 # Clone this repository
@@ -29,12 +30,15 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 - Android gradle project with [Kotlin DSL](https://docs.gradle.org/current/userguide/kotlin_dsl.html)
 - Some dependencies published on [GitHub Packages](https://docs.github.com/en/packages)
 - Modern Android Development with 100% [Kotlin Language](https://kotlinlang.org/)
-- UI/UX using material 3 and Jetpack Compose [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3)
+- UI/UX using material 3 and Jetpack
+  Compose [Compose Material 3](https://developer.android.com/jetpack/androidx/releases/compose-material3)
 
 </br>
 
 ## ⬇️ Download the APK
-- Open the [Assemble Release](https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml)
+
+- Open
+  the [Assemble Release](https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml)
 - Click the latest success running task
 
 <div align="center">
@@ -105,7 +109,6 @@ plugins {
   alias(indra.plugins.convention.detekt)
 }
 
-// Initial configuration for subprojects
 // Initial configuration for subprojects
 indramahkota {
   jvmTarget.set(JavaVersion.VERSION_11)

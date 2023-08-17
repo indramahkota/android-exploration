@@ -3,7 +3,7 @@ name: Assemble Release
 
 on:
   workflow_run:
-    workflows: [ "Scan with Detekt" ]
+    workflows: ["Scan with Detekt"]
     types:
       - completed
 
@@ -48,7 +48,7 @@ jobs:
         run: chmod +x gradlew && ./gradlew --no-configuration-cache build
 
   generate-release-apk:
-    needs: [ build-project ]
+    needs: [build-project]
     name: Generate Release Apk
     runs-on: ubuntu-latest
     steps:
