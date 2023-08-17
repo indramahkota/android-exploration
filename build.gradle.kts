@@ -3,9 +3,6 @@ import com.indramahkota.gradle.publishing.dsl.mit
 import com.indramahkota.gradle.publishing.dsl.setGitHubProject
 
 plugins {
-  alias(libs.plugins.kotlin.android) apply false
-  alias(libs.plugins.android.library) apply false
-  alias(libs.plugins.android.application) apply false
   alias(indra.plugins.convention.android.app) apply false
   alias(indra.plugins.convention.android.lib) apply false
   alias(indra.plugins.convention.compose.app) apply false
@@ -15,7 +12,6 @@ plugins {
   alias(indra.plugins.convention.android.config)
   alias(indra.plugins.convention.compose.config)
   alias(indra.plugins.convention.publish.config)
-  alias(libs.plugins.detekt.gradle.plugin)
   alias(indra.plugins.convention.detekt)
 }
 

@@ -4,9 +4,6 @@ import com.google.android.libraries.mapsplatform.secrets_gradle_plugin.loadPrope
 import com.indramahkota.gradle.android.dsl.staging
 
 plugins {
-  alias(libs.plugins.kotlin.android)
-  alias(libs.plugins.android.application)
-  alias(indra.plugins.convention.android.app)
   alias(indra.plugins.convention.compose.app)
   alias(libs.plugins.secret.gradle.plugin)
 }
@@ -54,13 +51,20 @@ android {
       manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_staging"
     }
     release {
+      signingConfig = signingConfigs.getByName("release")
       manifestPlaceholders["appName"] = androidApplicationName
       manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_release"
       manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_release"
+    }
+  }
 
-      signingConfig = signingConfigs.getByName("release")
-      isMinifyEnabled = true
-      isShrinkResources = true
+  // https://issuetracker.google.com/issues/295457468 remove line bellow after this issue fixed
+  defaultConfig {
+    configurations.all {
+      resolutionStrategy {
+        force("androidx.emoji2:emoji2-views-helper:1.3.0")
+        force("androidx.emoji2:emoji2:1.3.0")
+      }
     }
   }
 }
