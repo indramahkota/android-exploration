@@ -38,11 +38,13 @@ File -> New -> Project from Version Control -> GitHub -> Clone.
 ## ⬇️ Download the APK
 
 - Open
-  the [Assemble Release](https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml)
-- Click the latest success running task
+  the [Assemble Release Workflow](https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml)
+- Identify the Latest Successful Tasks
+- Select the Latest Success Running Task
+- In Artifacts section, Click the file named Exploration-v0.0.0-1.apk
 
 <div align="center">
-<a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://user-images.githubusercontent.com/34052126/193442434-1a36f7d2-a378-4230-9315-c044b030320f.png" alt="Download the APK"/></a>
+<a href="https://github.com/indramahkota/android-exploration/actions/workflows/assemble-release.yml"><img src="https://github.com/indramahkota/android-exploration/assets/34052126/620aebb5-2e90-4258-a1e0-5cf6915b25b3" alt="Download the APK"/></a>
 </div>
 
 </br>
@@ -88,7 +90,7 @@ dependencyResolutionManagement {
       from("com.indramahkota.gradle.version:catalog-android:0.1.3")
     }
     create("indra") {
-      from("com.indramahkota.gradle.version:catalog-indramahkota:0.1.7")
+      from("com.indramahkota.gradle.version:catalog-indramahkota:0.3.2")
     }
   }
 }
