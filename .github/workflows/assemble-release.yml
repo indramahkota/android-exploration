@@ -85,7 +85,7 @@ jobs:
         id: renamed
         run: |
           apk_location=$(cat app/exploration/build/outputs/apk/release/deliverable.txt)
-          filename=$(basename apk_location)
+          filename=$(basename $apk_location)
           echo "apkName=$filename" >> $GITHUB_OUTPUT
           echo "apkLocation=$apk_location" >> $GITHUB_OUTPUT
 
