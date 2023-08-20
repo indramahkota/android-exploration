@@ -1,15 +1,15 @@
 @file:Suppress("StringLiteralDuplication")
 
-import com.google.android.libraries.mapsplatform.secrets_gradle_plugin.loadPropertiesFile
 import com.indramahkota.gradle.android.dsl.staging
+import com.indramahkota.gradle.common.utils.loadPropertiesFile
 
 plugins {
   alias(indra.plugins.convention.compose.app)
   alias(libs.plugins.secret.gradle.plugin)
 }
 
-val androidApplicationName by extra { "Exploration" }
 val androidApplicationId by extra { "com.indramahkota.android.exploration" }
+val androidApplicationName by extra { "Exploration" }
 val androidApplicationVersionCode by extra { 1 }
 val androidApplicationVersionName by extra { "0.0.0" }
 val secretPropertiesFile by extra { "../../secrets.properties" }
@@ -26,15 +26,23 @@ android {
     applicationId = androidApplicationId
     versionCode = androidApplicationVersionCode
     versionName = androidApplicationVersionName
+
+    // https://issuetracker.google.com/issues/295457468 remove line bellow after this issue fixed
+    configurations.all {
+      resolutionStrategy {
+        force("androidx.emoji2:emoji2-views-helper:1.3.0")
+        force("androidx.emoji2:emoji2:1.3.0")
+      }
+    }
   }
 
   signingConfigs {
     create("release") {
-      val secrets = loadPropertiesFile(secretPropertiesFile)
-      keyAlias = secrets.getProperty("KEY_ALIAS")
-      keyPassword = secrets.getProperty("KEY_PASSWORD")
-      storeFile = file(secrets.getProperty("STORE_FILE"))
-      storePassword = secrets.getProperty("STORE_PASSWORD")
+      val propertiesFile = loadPropertiesFile(secretPropertiesFile)
+      keyAlias = propertiesFile.getProperty("KEY_ALIAS")
+      keyPassword = propertiesFile.getProperty("KEY_PASSWORD")
+      storeFile = file(propertiesFile.getProperty("STORE_FILE"))
+      storePassword = propertiesFile.getProperty("STORE_PASSWORD")
     }
   }
 
@@ -54,16 +62,6 @@ android {
       manifestPlaceholders["appName"] = androidApplicationName
       manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_release"
       manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_release"
-    }
-  }
-
-  // https://issuetracker.google.com/issues/295457468 remove line bellow after this issue fixed
-  defaultConfig {
-    configurations.all {
-      resolutionStrategy {
-        force("androidx.emoji2:emoji2-views-helper:1.3.0")
-        force("androidx.emoji2:emoji2:1.3.0")
-      }
     }
   }
 }

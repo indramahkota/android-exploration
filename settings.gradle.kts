@@ -36,7 +36,7 @@ dependencyResolutionManagement {
       from("com.indramahkota.gradle.version:catalog-android:0.1.3")
     }
     create("indra") {
-      from("com.indramahkota.gradle.version:catalog-indramahkota:0.1.7")
+      from("com.indramahkota.gradle.version:catalog-indramahkota:0.3.2")
     }
   }
 }

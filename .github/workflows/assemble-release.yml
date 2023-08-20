@@ -79,10 +79,18 @@ jobs:
           echo "${{ secrets.SECRET_PROPERTIES }}" > ./secrets.properties
 
       - name: Run Assemble Release
-        run: chmod +x gradlew && ./gradlew --no-configuration-cache assembleRelease
+        run: chmod +x gradlew && ./gradlew --no-configuration-cache releaseRenamedAPK
+
+      - name: Get Renamed Output
+        id: renamed
+        run: |
+          apk_location=$(cat app/exploration/build/outputs/apk/release/deliverable.txt)
+          filename=$(basename apk_location)
+          echo "apkName=$filename" >> $GITHUB_OUTPUT
+          echo "apkLocation=$apk_location" >> $GITHUB_OUTPUT
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: android-exploration-release-apk
-          path: app/exploration/build/outputs/apk/release/*.apk
+          name: ${{ steps.renamed.outputs.apkName }}
+          path: ${{ steps.renamed.outputs.apkLocation }}
