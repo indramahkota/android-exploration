@@ -84,13 +84,23 @@ jobs:
       - name: Get Renamed Output
         id: renamed
         run: |
-          apk_location=$(cat app/exploration/build/outputs/apk/release/deliverable.txt)
-          filename=$(basename $apk_location)
-          echo "apkName=$filename" >> $GITHUB_OUTPUT
-          echo "apkLocation=$apk_location" >> $GITHUB_OUTPUT
+          designsystem_apk_location=$(cat app/designsystem/build/outputs/apk/release/deliverable.txt)
+          exploration_apk_location=$(cat app/exploration/build/outputs/apk/release/deliverable.txt)
+          designsystem_filename=$(basename $designsystem_apk_location)
+          exploration_filename=$(basename $exploration_apk_location)
+          echo "designSystemApkName=$designsystem_filename" >> $GITHUB_OUTPUT
+          echo "designSystemApkLocation=$designsystem_apk_location" >> $GITHUB_OUTPUT
+          echo "explorationApkName=$exploration_filename" >> $GITHUB_OUTPUT
+          echo "explorationApkLocation=$exploration_apk_location" >> $GITHUB_OUTPUT
 
-      - name: Upload Artifact
+      - name: Upload Design System Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ steps.renamed.outputs.apkName }}
-          path: ${{ steps.renamed.outputs.apkLocation }}
+          name: ${{ steps.renamed.outputs.designSystemApkName }}
+          path: ${{ steps.renamed.outputs.designSystemApkLocation }}
+
+      - name: Upload Exploration Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ steps.renamed.outputs.explorationApkName }}
+          path: ${{ steps.renamed.outputs.explorationApkLocation }}

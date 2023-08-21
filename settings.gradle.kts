@@ -44,6 +44,7 @@ dependencyResolutionManagement {
 rootProject.name = "android-exploration"
 
 include(":app:exploration")
+include(":app:designsystem")
 include(":core:designsystem")
 include(":core:media")
 include(":core:navigation")
