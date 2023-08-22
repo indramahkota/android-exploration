@@ -80,8 +80,8 @@ dependencies {
   implementation(project(":core:ui"))
 
   // Features
-  implementation(project(":features:designsystem"))
-  implementation(project(":features:homebase"))
+  implementation(project(":feature:designsystem"))
+  implementation(project(":feature:homebase"))
 
   // AndroidX
   implementation(libs.androidx.metrics)
