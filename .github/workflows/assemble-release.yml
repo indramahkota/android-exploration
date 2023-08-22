@@ -41,7 +41,7 @@ jobs:
       - name: Setup Secrets
         run: |
           mkdir -p ./keystore
-          echo "${{ secrets.BASE64_CERT }}" | base64 -di > ./keystore/release-key.jks
+          echo "${{ secrets.BASE64_CERT }}" | base64 -di > ./keystore/release-keystore.jks
           echo "${{ secrets.SECRET_PROPERTIES }}" > ./secrets.properties
 
       - name: Run Build
