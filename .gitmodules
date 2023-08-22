@@ -6,7 +6,7 @@
 	path = data
 	url = git@github.com:indramahkota/android-exploration-data.git
 	branch = main
-[submodule "features"]
-	path = features
-	url = git@github.com:indramahkota/android-exploration-features.git
+[submodule "feature"]
+	path = feature
+	url = git@github.com:indramahkota/android-exploration-feature.git
 	branch = main
