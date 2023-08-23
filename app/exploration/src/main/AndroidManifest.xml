@@ -11,7 +11,7 @@
       android:label="${appName}"
       android:roundIcon="${appIconRound}"
       android:supportsRtl="true"
-      android:theme="@style/Theme.App">
+      android:theme="@style/Theme.Starting">
 
     <activity
         android:name=".MainActivity"
