@@ -43,6 +43,7 @@ jobs:
           mkdir -p ./keystore
           echo "${{ secrets.BASE64_CERT }}" | base64 -di > ./keystore/release-keystore.jks
           echo "${{ secrets.SECRET_PROPERTIES }}" | base64 -di > ./secrets.properties
+          echo "${{ secrets.KEYSTORE_PROPERTIES }}" | base64 -di > ./keystore.properties
 
       - name: Run Build
         run: chmod +x gradlew && ./gradlew --no-configuration-cache build
@@ -77,6 +78,7 @@ jobs:
           mkdir -p ./keystore
           echo "${{ secrets.BASE64_CERT }}" | base64 -di > ./keystore/release-keystore.jks
           echo "${{ secrets.SECRET_PROPERTIES }}" | base64 -di > ./secrets.properties
+          echo "${{ secrets.KEYSTORE_PROPERTIES }}" | base64 -di > ./keystore.properties
 
       - name: Run Assemble Release
         run: chmod +x gradlew && ./gradlew --no-configuration-cache releaseRenamedAPK

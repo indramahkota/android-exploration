@@ -44,6 +44,8 @@ jobs:
           mkdir -p ./keystore
           echo "${{ secrets.BASE64_CERT }}" | base64 -di > ./keystore/release-keystore.jks
           echo "${{ secrets.SECRET_PROPERTIES }}" | base64 -di > ./secrets.properties
+          echo "${{ secrets.SECRET_PROPERTIES }}" | base64 -di > ./secrets.properties
+          echo "${{ secrets.KEYSTORE_PROPERTIES }}" | base64 -di > ./keystore.properties
 
       - name: Run detekt
         run: chmod +x gradlew && ./gradlew :detektAll --stacktrace
