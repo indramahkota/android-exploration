@@ -12,7 +12,7 @@ val androidApplicationId by extra { "com.indramahkota.android.designsystem" }
 val androidApplicationName by extra { "Design System" }
 val androidApplicationVersionCode by extra { 1 }
 val androidApplicationVersionName by extra { "0.0.0" }
-val secretPropertiesFile by extra { "../../secrets.properties" }
+val secretPropertiesFile by extra { "../../keystore.properties" }
 
 // Using initial configuration from root project
 android {
