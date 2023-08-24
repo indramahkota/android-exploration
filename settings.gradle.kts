@@ -33,10 +33,10 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     create("libs") {
-      from("com.indramahkota.gradle.version:catalog-android:0.1.3")
+      from("com.indramahkota.gradle.version:catalog-android:0.1.4")
     }
     create("indra") {
-      from("com.indramahkota.gradle.version:catalog-indramahkota:0.3.4")
+      from("com.indramahkota.gradle.version:catalog-indramahkota:0.3.5")
     }
   }
 }
