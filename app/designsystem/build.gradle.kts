@@ -26,14 +26,6 @@ android {
     applicationId = androidApplicationId
     versionCode = androidApplicationVersionCode
     versionName = androidApplicationVersionName
-
-    // https://issuetracker.google.com/issues/295457468 remove line bellow after this issue fixed
-    configurations.all {
-      resolutionStrategy {
-        force("androidx.emoji2:emoji2-views-helper:1.3.0")
-        force("androidx.emoji2:emoji2:1.3.0")
-      }
-    }
   }
 
   signingConfigs {

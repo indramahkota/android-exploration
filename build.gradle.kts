@@ -30,13 +30,14 @@ indramahkota {
   android {
     minSdk.set(23)
     targetSdk.set(34)
+    compileSdk.set(34)
   }
 
   // Report directory:
   // rootDir/reports/compose-reports/
   // rootDir/reports/compose-metrics/
   compose {
-    compilerVersion.set("1.5.1")
+    compilerVersion.set("1.5.3")
     enableComposeCompilerMetrics.set(true)
     enableComposeCompilerReports.set(true)
   }
