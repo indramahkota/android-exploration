@@ -87,10 +87,13 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     create("libs") {
-      from("com.indramahkota.gradle.version:catalog-android:0.1.3")
+      from("com.indramahkota.gradle.version:catalog-android:0.1.6")
     }
     create("indra") {
-      from("com.indramahkota.gradle.version:catalog-indramahkota:0.3.4")
+      from("com.indramahkota.gradle.version:catalog-indramahkota:0.4.0")
+    }
+    create("exploration") {
+      from(files("gradle/exploration.versions.toml"))
     }
   }
 }
@@ -126,13 +129,14 @@ indramahkota {
   android {
     minSdk.set(23)
     targetSdk.set(34)
+    compileSdk.set(34)
   }
 
   // Report directory:
   // rootDir/reports/compose-reports/
   // rootDir/reports/compose-metrics/
   compose {
-    compilerVersion.set("1.5.1")
+    compilerVersion.set("1.5.3")
     enableComposeCompilerMetrics.set(true)
     enableComposeCompilerReports.set(true)
   }
