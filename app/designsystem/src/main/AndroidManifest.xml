@@ -7,9 +7,9 @@
   <application
       android:name=".MainApplication"
       android:allowBackup="true"
-      android:icon="${appIcon}"
+      android:icon="${squareIcon}"
       android:label="${appName}"
-      android:roundIcon="${appIconRound}"
+      android:roundIcon="${roundIcon}"
       android:supportsRtl="true"
       android:theme="@style/Theme.Starting">
 

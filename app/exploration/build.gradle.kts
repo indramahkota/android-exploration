@@ -2,6 +2,7 @@
 
 import com.indramahkota.gradle.android.dsl.staging
 import com.indramahkota.gradle.common.utils.loadPropertiesFile
+import org.gradle.configurationcache.extensions.capitalized
 
 plugins {
   alias(indra.plugins.convention.compose.app)
@@ -9,9 +10,11 @@ plugins {
 }
 
 val androidApplicationId by extra { "com.indramahkota.android.exploration" }
-val androidApplicationName by extra { "Exploration" }
 val androidApplicationVersionCode by extra { 1 }
 val androidApplicationVersionName by extra { "0.0.0" }
+val androidApplicationName by extra { "Exploration" }
+val squareIconName by extra { "@mipmap/ic_launcher_square" }
+val roundIconName by extra { "@mipmap/ic_launcher_round" }
 val secretPropertiesFile by extra { "../../keystore.properties" }
 
 // Using initial configuration from root project
@@ -40,20 +43,20 @@ android {
 
   buildTypes {
     debug {
-      manifestPlaceholders["appName"] = androidApplicationName
-      manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_dev"
-      manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_dev"
+      manifestPlaceholders["appName"] = androidApplicationName.plus(" ${name.capitalized()}")
+      manifestPlaceholders["squareIcon"] = squareIconName.plus("_$name")
+      manifestPlaceholders["roundIcon"] = roundIconName.plus("_$name")
     }
     staging {
-      manifestPlaceholders["appName"] = androidApplicationName
-      manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_staging"
-      manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_staging"
+      manifestPlaceholders["appName"] = androidApplicationName.plus(" ${name.capitalized()}")
+      manifestPlaceholders["squareIcon"] = squareIconName.plus("_$name")
+      manifestPlaceholders["roundIcon"] = roundIconName.plus("_$name")
     }
     release {
       signingConfig = signingConfigs.getByName("release")
       manifestPlaceholders["appName"] = androidApplicationName
-      manifestPlaceholders["appIcon"] = "@mipmap/ic_launcher_square_release"
-      manifestPlaceholders["appIconRound"] = "@mipmap/ic_launcher_round_release"
+      manifestPlaceholders["squareIcon"] = squareIconName
+      manifestPlaceholders["roundIcon"] = roundIconName
     }
   }
 }
