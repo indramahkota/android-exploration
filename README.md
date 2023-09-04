@@ -87,10 +87,10 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     create("libs") {
-      from("com.indramahkota.gradle.version:catalog-android:0.1.6")
+      from("com.indramahkota.gradle.version:catalog-android:0.1.7")
     }
     create("indra") {
-      from("com.indramahkota.gradle.version:catalog-indramahkota:0.4.0")
+      from("com.indramahkota.gradle.version:catalog-indramahkota:0.4.4")
     }
     create("exploration") {
       from(files("gradle/exploration.versions.toml"))
@@ -118,18 +118,9 @@ plugins {
 indramahkota {
   jvmTarget.set(JavaVersion.VERSION_11)
 
-  // Report directory:
-  // rootDir/reports/detekt-reports/
-  detekt {
-    checkOnlyDiffWithBranch("main") {
-      fileExtensions = setOf(".kt", ".kts")
-    }
-  }
-
   android {
     minSdk.set(23)
     targetSdk.set(34)
-    compileSdk.set(34)
   }
 
   // Report directory:

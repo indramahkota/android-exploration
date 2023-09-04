@@ -1,67 +1,58 @@
 @file:Suppress("StringLiteralDuplication")
 
-import com.indramahkota.gradle.android.dsl.staging
 import com.indramahkota.gradle.common.utils.loadPropertiesFile
-import org.gradle.configurationcache.extensions.capitalized
 
 plugins {
   alias(indra.plugins.convention.compose.app)
   alias(libs.plugins.secret.gradle.plugin)
 }
 
-val androidApplicationId by extra { "com.indramahkota.android.designsystem" }
-val androidApplicationVersionCode by extra { 1 }
-val androidApplicationVersionName by extra { "0.0.0" }
-val androidApplicationName by extra { "Design System" }
-val squareIconName by extra { "@mipmap/ic_launcher_square" }
-val roundIconName by extra { "@mipmap/ic_launcher_round" }
-val secretPropertiesFile by extra { "../../keystore.properties" }
-
-// Using initial configuration from root project
 android {
-  namespace = androidApplicationId
+  namespace = "com.indramahkota.android.designsystem"
 
   buildFeatures {
     buildConfig = true
   }
 
   defaultConfig {
-    applicationId = androidApplicationId
-    versionCode = androidApplicationVersionCode
-    versionName = androidApplicationVersionName
+    applicationId = "com.indramahkota.android.designsystem"
+    versionCode = 1
+    versionName = "0.0.0"
   }
 
   signingConfigs {
     create("release") {
-      val propertiesFile = loadPropertiesFile(secretPropertiesFile)
-      keyAlias = propertiesFile.getProperty("KEY_ALIAS")
-      keyPassword = propertiesFile.getProperty("KEY_PASSWORD")
-      storeFile = file(propertiesFile.getProperty("STORE_FILE"))
-      storePassword = propertiesFile.getProperty("STORE_PASSWORD")
+      val properties = loadPropertiesFile("../../keystore.properties")
+      keyAlias = properties.getProperty("KEY_ALIAS")
+      keyPassword = properties.getProperty("KEY_PASSWORD")
+      storeFile = file(properties.getProperty("STORE_FILE"))
+      storePassword = properties.getProperty("STORE_PASSWORD")
     }
   }
 
-  buildTypes {
-    debug {
-      manifestPlaceholders["appName"] = androidApplicationName.plus(" ${name.capitalized()}")
-      manifestPlaceholders["squareIcon"] = squareIconName.plus("_$name")
-      manifestPlaceholders["roundIcon"] = roundIconName.plus("_$name")
-    }
-    staging {
-      manifestPlaceholders["appName"] = androidApplicationName.plus(" ${name.capitalized()}")
-      manifestPlaceholders["squareIcon"] = squareIconName.plus("_$name")
-      manifestPlaceholders["roundIcon"] = roundIconName.plus("_$name")
-    }
-    release {
-      signingConfig = signingConfigs.getByName("release")
-      manifestPlaceholders["appName"] = androidApplicationName
-      manifestPlaceholders["squareIcon"] = squareIconName
-      manifestPlaceholders["roundIcon"] = roundIconName
+  androidComponents {
+    finalizeDsl {
+      buildTypes {
+        debug {
+          manifestPlaceholders.apply {
+            put("appName", "Design System - Debug")
+            put("roundIcon", "@mipmap/ic_launcher_round_debug")
+            put("squareIcon", "@mipmap/ic_launcher_square_debug")
+          }
+        }
+        release {
+          signingConfig = signingConfigs.getByName("release")
+          manifestPlaceholders.apply {
+            put("appName", "Design System")
+            put("roundIcon", "@mipmap/ic_launcher_round")
+            put("squareIcon", "@mipmap/ic_launcher_square")
+          }
+        }
+      }
     }
   }
 }
 
-// Mandatory for get data from secrets.properties in this module
 secrets {
   propertiesFileName = "secrets.properties"
   defaultPropertiesFileName = "secrets.defaults.properties"
