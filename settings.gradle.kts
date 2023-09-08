@@ -33,7 +33,7 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     create("libs") {
-      from("com.indramahkota.gradle.version:catalog-android:0.1.7")
+      from("com.indramahkota.gradle.version:catalog-android:0.2.0")
     }
     create("indra") {
       from("com.indramahkota.gradle.version:catalog-indramahkota:0.4.4")
@@ -52,6 +52,7 @@ include(":core:designsystem")
 include(":core:media")
 include(":core:navigation")
 include(":core:ui")
+include(":data:database")
 include(":data:remote")
 include(":feature:designsystem")
 include(":feature:homebase")
