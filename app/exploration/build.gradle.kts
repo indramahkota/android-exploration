@@ -1,5 +1,3 @@
-@file:Suppress("StringLiteralDuplication")
-
 import com.indramahkota.gradle.common.utils.loadPropertiesFile
 
 plugins {
@@ -70,6 +68,7 @@ dependencies {
   // Features
   implementation(project(":feature:designsystem"))
   implementation(project(":feature:homebase"))
+  implementation(project(":feature:profile"))
 
   // AndroidX
   implementation(libs.androidx.metrics)

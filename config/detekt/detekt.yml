@@ -1,5 +1,6 @@
+# https://detekt.dev/docs/introduction/configurations/
 build:
-  maxIssues: 0
+  maxIssues: 0 # break the build if more than ten weighted issues are found
   excludeCorrectable: false
   weights:
     complexity: 2
@@ -126,7 +127,7 @@ complexity:
   StringLiteralDuplication:
     active: true
     excludes: ['**/test/**', '**/androidTest/**', '**/commonTest/**', '**/jvmTest/**', '**/jsTest/**', '**/iosTest/**']
-    threshold: 3
+    threshold: 5
     ignoreAnnotation: true
     excludeStringsWithLessThan5Characters: true
     ignoreStringsRegex: '^(boolean|false)$'
@@ -276,9 +277,7 @@ formatting:
     active: true
     autoCorrect: true
   ArgumentListWrapping:
-    # TODO: Enable after update to ktlint 0.42+
-    #  Issue: https://github.com/pinterest/ktlint/issues/1159
-    active: false
+    active: true
     autoCorrect: true
     indentSize: 2
     maxLineLength: 120
@@ -601,7 +600,6 @@ style:
     active: true
   ExplicitItLambdaParameter:
     active: true
-  # TODO: https://github.com/detekt/detekt/issues/950#issuecomment-401575701
   ExpressionBodySyntax:
     active: false
     includeLineWrapping: false
@@ -609,11 +607,6 @@ style:
     active: false
     imports: []
     forbiddenPatterns: ''
-  ForbiddenMethodCall:
-    active: true
-    methods:
-      - 'kotlin.io.print'
-      - 'kotlin.io.println'
   ForbiddenVoid:
     active: true
     ignoreOverridden: false
@@ -726,6 +719,9 @@ style:
   UnusedPrivateMember:
     active: true
     allowedNames: '(_|ignored|expected|serialVersionUID)'
+    ignoreAnnotated:
+      - 'Preview'
+      - 'ThemePreviews'
   UseAnyOrNoneInsteadOfFind:
     active: true
   UseArrayLiteralsInAnnotations:

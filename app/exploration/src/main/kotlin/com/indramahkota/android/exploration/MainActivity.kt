@@ -10,7 +10,9 @@ import androidx.navigation.compose.rememberNavController
 import com.indramahkota.android.core.designsystem.theme.AppTheme
 import com.indramahkota.android.core.ui.splashscreen.withSlideUpAnimation
 import com.indramahkota.android.exploration.navigation.MainNavGraph
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
   private lateinit var navController: NavHostController
 

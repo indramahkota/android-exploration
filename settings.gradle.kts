@@ -38,9 +38,6 @@ dependencyResolutionManagement {
     create("indra") {
       from("com.indramahkota.gradle.version:catalog-indramahkota:0.4.4")
     }
-    create("exploration") {
-      from(files("gradle/exploration.versions.toml"))
-    }
   }
 }
 
@@ -52,7 +49,8 @@ include(":core:designsystem")
 include(":core:media")
 include(":core:navigation")
 include(":core:ui")
-include(":data:database")
-include(":data:remote")
+include(":data:network")
+include(":data:github")
 include(":feature:designsystem")
 include(":feature:homebase")
+include(":feature:profile")

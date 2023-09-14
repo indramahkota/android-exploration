@@ -1,7 +1,0 @@
-[versions]
-core-network = "0.0.4"
-client-github-v4 = "0.0.6"
-
-[libraries]
-core-network = { module = "com.indramahkota.android.core:network", version.ref = "core-network" }
-client-github-v4 = { module = "com.indramahkota.android.client:github-v4", version.ref = "client-github-v4" }

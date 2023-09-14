@@ -53,3 +53,20 @@ indramahkota {
     }
   }
 }
+
+tasks.register("clean", Delete::class.java) {
+  description = "Remove all the build files and intermediate build outputs"
+  subprojects.forEach {
+    if (it.project.plugins.hasPlugin("com.android.library") ||
+      it.project.plugins.hasPlugin("com.android.application")
+    ) {
+      // Execute subprojects clean task before delete root build directory
+      dependsOn(it.tasks.named("clean"))
+    }
+  }
+  delete(
+    allprojects.map {
+      it.layout.buildDirectory.asFile
+    },
+  )
+}
