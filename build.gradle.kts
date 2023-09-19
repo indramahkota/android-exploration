@@ -19,7 +19,7 @@ plugins {
 }
 
 indramahkota {
-  jvmTarget.set(JavaVersion.VERSION_11)
+  jvmTarget.set(JavaVersion.VERSION_17)
 
   android {
     minSdk.set(23)

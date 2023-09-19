@@ -16,7 +16,18 @@ captures/
 .externalNativeBuild/
 .cxx/
 *.apk
+*.aab
 output.json
+
+# Files for the ART/Dalvik VM
+*.dex
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
 
 # IntelliJ
 *.iml
@@ -34,4 +45,3 @@ google-services.json
 
 # Android Profiling
 *.hprof
-/.idea/

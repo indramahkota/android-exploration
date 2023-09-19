@@ -87,13 +87,10 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     create("libs") {
-      from("com.indramahkota.gradle.version:catalog-android:0.1.7")
+      from("com.indramahkota.gradle.version:catalog-android:0.2.1")
     }
     create("indra") {
-      from("com.indramahkota.gradle.version:catalog-indramahkota:0.4.4")
-    }
-    create("exploration") {
-      from(files("gradle/exploration.versions.toml"))
+      from("com.indramahkota.gradle.version:catalog-indramahkota:0.4.5")
     }
   }
 }
@@ -116,7 +113,7 @@ plugins {
 
 // Initial configuration for subprojects
 indramahkota {
-  jvmTarget.set(JavaVersion.VERSION_11)
+  jvmTarget.set(JavaVersion.VERSION_17)
 
   android {
     minSdk.set(23)

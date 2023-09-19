@@ -1,6 +1,6 @@
 # https://detekt.dev/docs/introduction/configurations/
 build:
-  maxIssues: 0 # break the build if more than ten weighted issues are found
+  maxIssues: 0 # break the build if more than max issues are found
   excludeCorrectable: false
   weights:
     complexity: 2

@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p $HOME/.ssh
           echo "$SSHK" > $HOME/.ssh/ssh.key
-          chmod 600 $HOME/.ssh/ssh.key
+          chmod 400 $HOME/.ssh/ssh.key
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
           git submodule update --init --recursive
 
@@ -60,7 +60,7 @@ jobs:
         run: |
           mkdir -p $HOME/.ssh
           echo "$SSHK" > $HOME/.ssh/ssh.key
-          chmod 600 $HOME/.ssh/ssh.key
+          chmod 400 $HOME/.ssh/ssh.key
           export GIT_SSH_COMMAND="ssh -i $HOME/.ssh/ssh.key"
           git submodule update --init --recursive
 
