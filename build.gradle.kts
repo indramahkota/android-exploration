@@ -5,6 +5,7 @@ import com.indramahkota.gradle.publishing.dsl.setGitHubProject
 plugins {
   alias(libs.plugins.kotlin.ksp) apply false
   alias(libs.plugins.hilt.android) apply false
+  alias(exploration.plugins.gms.google.services) apply false
 
   alias(indra.plugins.convention.android.app) apply false
   alias(indra.plugins.convention.android.lib) apply false

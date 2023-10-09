@@ -1,0 +1,17 @@
+[versions]
+gms-google-services = "4.4.0"
+firebase-bom = "32.3.1"
+firebase-auth-ktx = "22.1.2"
+play-services-auth = "20.7.0"
+lifecycle-runtime-compose = "2.6.2"
+
+[libraries]
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebase-bom" }
+firebase-auth-ktx = { module = "com.google.firebase:firebase-auth-ktx", version.ref = "firebase-auth-ktx" }
+play-services-auth = { module = "com.google.android.gms:play-services-auth", version.ref = "play-services-auth" }
+
+# Lifecycle
+lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle-runtime-compose" }
+
+[plugins]
+gms-google-services = { id = "com.google.gms.google-services", version.ref = "gms-google-services" }

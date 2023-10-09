@@ -5,6 +5,7 @@ plugins {
   alias(libs.plugins.kotlin.ksp)
   alias(libs.plugins.hilt.android)
   alias(libs.plugins.secret.gradle.plugin)
+  alias(exploration.plugins.gms.google.services)
 }
 
 android {
@@ -67,8 +68,14 @@ dependencies {
 
   // Features
   implementation(project(":feature:designsystem"))
+  implementation(project(":feature:auth"))
   implementation(project(":feature:homebase"))
   implementation(project(":feature:profile"))
+
+  // Firebase
+  implementation(exploration.firebase.bom)
+  implementation(exploration.firebase.auth.ktx)
+  implementation(exploration.play.services.auth)
 
   // AndroidX
   implementation(libs.androidx.metrics)
